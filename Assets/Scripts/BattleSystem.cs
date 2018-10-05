@@ -10,6 +10,11 @@ public class BattleSystem : MonoBehaviour {
     public List<GameObject> emenyList;
     public GameObject lockedEmeny;
 
+    [SerializeField]
+    int index = 0;
+
+    int count;
+
     private void Start()
     {
         emenyList = new List<GameObject>();
@@ -48,7 +53,28 @@ public class BattleSystem : MonoBehaviour {
     /// <returns></returns>
     public GameObject ChangeEmeny(List<GameObject> emenys)
     {
+        count = emenys.Count;
+        Debug.Log(count);
+        if (emenys == null)
+            return null;
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            index += 1;
+            if (index >= count)
+            {
+                index = 0;
+            }
+        }
+        lockedEmeny = emenys[index];
 
         return lockedEmeny;
+    }
+
+    private void Update()
+    {
+        emenyList = GetEmeny();
+        Debug.Log(emenyList.Count);
+        ChangeEmeny(emenyList);
+        //Debug.Log(lockedEmeny.name);
     }
 }
