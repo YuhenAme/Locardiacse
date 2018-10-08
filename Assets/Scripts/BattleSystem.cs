@@ -10,7 +10,7 @@ public class BattleSystem : MonoBehaviour {
     public List<GameObject> emenyList;
     public GameObject lockedEmeny;
 
-    [SerializeField]
+    
     int index = 0;
 
     int count;
