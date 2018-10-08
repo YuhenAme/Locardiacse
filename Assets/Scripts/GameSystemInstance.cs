@@ -5,6 +5,8 @@ using UnityEngine;
 namespace GameSystemInstance
 {
     [RequireComponent(typeof(AudioSystemInstance))]
+    [RequireComponent(typeof(BattleSystemInstance))]
+    [RequireComponent(typeof(ScriptSystemInstance))]
     public class GameSystemInstance : MonoBehaviour
     {
         
