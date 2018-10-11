@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dialogues>
+       <dialogue>
+              <role>A</role>
+              <detail>好烦啊！</detail>
+       </dialogue>
+       <dialogue>
+              <role>B</role>
+              <detail>怎么了</detail>
+       </dialogue>
+	   <dialogue>
+              <role>A</role>
+              <detail>自闭了</detail>
+       </dialogue>
+</dialogues>

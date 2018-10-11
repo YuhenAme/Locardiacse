@@ -6,7 +6,7 @@ namespace GameSystemInstance
     public class BattleSystemInstance : SystemInstance<BattleSystemInstance>
     {
         [Header("战斗系统")]
-        public EmptyStruct 一一一一一一一一;
+        public EmptyStruct 一一一一一一一一一一;
         [System.Serializable]
         public class Setting
         {
@@ -58,6 +58,7 @@ namespace GameSystem
                 }
             }
             return Setting.emenyList;
+           
         }
         /// <summary>
         /// 索敌
