@@ -7,9 +7,15 @@ namespace GameSystemInstance
     [RequireComponent(typeof(AudioSystemInstance))]
     [RequireComponent(typeof(BattleSystemInstance))]
     [RequireComponent(typeof(ScriptSystemInstance))]
+    [RequireComponent(typeof(EventSystemInstance))]
     public class GameSystemInstance : MonoBehaviour
     {
         
+        //写流程控制-------------
+
+
+
+
     }
     /// <summary>
     /// 子系统的父类

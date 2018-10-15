@@ -14,9 +14,11 @@ public class Test : MonoBehaviour {
 	void Update () {
 
         //GameSystem.BattleSystem.GetEmeny();
-        GameSystem.ScriptSystem.PlayScript("dialogues", "dialogues");
-        Debug.Log(GameSystem.ScriptSystem.GetRole() + GameSystem.ScriptSystem.GetRoleDetail());
-        
+        //GameSystem.ScriptSystem.PlayScript("dialogues", "dialogues");
+        //Debug.Log(GameSystem.ScriptSystem.GetRole() + GameSystem.ScriptSystem.GetRoleDetail());
 
+        //游戏流程控制系统调用事件,协程
+        GameSystem.EventSystem.FirstOpen.FirstOpenEvent();
+        
     }
 }
