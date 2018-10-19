@@ -9,7 +9,7 @@ namespace GameSystemInstance
     {
         [Header("事件系统")]
         public EmptyStruct 一一一一一一一一一一;
-
+        [System.Serializable]
         public class Setting
         {
 
@@ -29,10 +29,28 @@ namespace GameSystem
         //可自定义委托类型
         private static event EventHandler EventHandlerControll;
         
-        //开门委托测试
-        private static void OpenDoorEvent()
+        //委托测试
+        private static void OpenEvent()
         {
             EventHandlerControll(Instance, null);
+        }
+
+        //注册事件
+        private static void RegisterEvent(EventHandler e)
+        {
+            if (EventHandlerControll != null)
+                EventHandlerControll += e;
+            else
+                EventHandlerControll = e;
+        }
+        //注销事件
+        public static void CancelEvent()
+        {
+            //EventHandlerControll = null;
+            while (EventHandlerControll != null)
+            {
+                EventHandlerControll -= EventHandlerControll;
+            }
         }
 
         public static class FirstOpen
@@ -46,30 +64,13 @@ namespace GameSystem
             {
                 Debug.Log("开灯");
             }
-            //注册事件
-            private static void RegisterEvent(EventHandler e)
-            {
-                if (EventHandlerControll != null)
-                    EventHandlerControll += e;
-                else
-                    EventHandlerControll = e;
-            }
-            //注销事件
-            public static void CancelEvent()
-            {
-                //EventHandlerControll = null;
-                while (EventHandlerControll != null)
-                {
-                    EventHandlerControll -= EventHandlerControll;
-                }
-            }
             //第一次事件
             public static void FirstOpenEvent()
             {
                 CancelEvent();
                 RegisterEvent(Event1);
                 RegisterEvent(Event2);
-                OpenDoorEvent();
+                OpenEvent();
             }
         }
     }

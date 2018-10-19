@@ -18,7 +18,7 @@ public class Test : MonoBehaviour {
         //Debug.Log(GameSystem.ScriptSystem.GetRole() + GameSystem.ScriptSystem.GetRoleDetail());
 
         //游戏流程控制系统调用事件,协程
-        GameSystem.EventSystem.FirstOpen.FirstOpenEvent();
+        //GameSystem.EventSystem.FirstOpen.FirstOpenEvent();
         
     }
 }

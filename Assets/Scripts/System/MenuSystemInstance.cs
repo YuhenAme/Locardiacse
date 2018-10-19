@@ -8,6 +8,7 @@ namespace GameSystemInstance
     {
         [Header("UI事件系统")]
         public EmptyStruct 一一一一一一一一一一;
+        [System.Serializable]
         public class Setting
         {
 
