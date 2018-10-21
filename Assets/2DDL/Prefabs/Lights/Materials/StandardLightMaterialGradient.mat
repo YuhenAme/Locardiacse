@@ -26,9 +26,9 @@ Material:
     - _InvFade: 1
     - _Offset: -5.29
     - _UVXOffset: -0.5
-    - _UVXScale: -15
+    - _UVXScale: -9.93
     - _UVYOffset: -0.5
     - _UVYScale: -15
     m_Colors:
-    - _Color: {r: 0.33088237, g: 0.66774863, b: 1, a: 0.172}
+    - _Color: {r: 0.047481313, g: 0.9150943, b: 0.4778741, a: 0.15294118}
     - _TintColor: {r: 0.8050233, g: 0.9852941, b: 0.39121974, a: 1}
