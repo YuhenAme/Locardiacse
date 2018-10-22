@@ -7,7 +7,10 @@ public class Test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+        //测试xml
+        GameSystem.BackpackSystem.CreateBackpack();
+        string s = GameSystem.BackpackSystem.GetProp("手枪子弹数量");
+        //Debug.Log(s);
     }
 	
 	// Update is called once per frame

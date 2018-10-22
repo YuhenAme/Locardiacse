@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GameSystemInstance
 {
+    [RequireComponent(typeof(BackpackSystemInstance))]
     [RequireComponent(typeof(AudioSystemInstance))]
     [RequireComponent(typeof(BattleSystemInstance))]
     [RequireComponent(typeof(ScriptSystemInstance))]
