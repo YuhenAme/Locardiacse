@@ -9,8 +9,7 @@ public class Test : MonoBehaviour {
 	void Start () {
         //测试xml
         GameSystem.BackpackSystem.CreateBackpack();
-        string s = GameSystem.BackpackSystem.GetProp("手枪子弹数量");
-        //Debug.Log(s);
+        
     }
 	
 	// Update is called once per frame
@@ -22,6 +21,18 @@ public class Test : MonoBehaviour {
 
         //游戏流程控制系统调用事件,协程
         //GameSystem.EventSystem.FirstOpen.FirstOpenEvent();
-        
+
+        string s = GameSystem.BackpackSystem.GetProp("手枪子弹数量");
+        Debug.Log(s);
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameSystem.BackpackSystem.AddProp("手枪子弹数量", 10);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            GameSystem.BackpackSystem.RemoveProp("手枪子弹数量", 5);
+        }
+            
+
     }
 }
