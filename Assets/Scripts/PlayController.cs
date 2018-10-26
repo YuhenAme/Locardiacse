@@ -11,9 +11,12 @@ public class PlayController : MonoBehaviour {
     private float hp = 100;
     [SerializeField][Header("人物紧张值")][Range(0,100)]
     private float nervous = 0;
-
     [SerializeField][Header("当前持枪")]
     private GameSystem.Gun gun;
+
+    public Prop[] currentBullets = new Prop[6];//当前弹夹
+    private Prop currentBullet;//当前子弹
+    private int bulletIndex = 0;//当前子弹索引
 
     int gunStateIndex = 0;
 
@@ -25,6 +28,8 @@ public class PlayController : MonoBehaviour {
     private void Update()
     {
         ChangeWeapon();
+        ChangeBullets();
+        Shoot();
     }
 
 
@@ -63,10 +68,39 @@ public class PlayController : MonoBehaviour {
         switch (gunStateIndex)
         {
             case 0:gun = null;Debug.Log("无枪械");break;
-            case 1:gun = GameSystem.Pistol.pistol;gun.Init(); Debug.Log(gun.GunState);break;
-            case 2:gun = GameSystem.Rifle.rifle;gun.Init(); Debug.Log(gun.GunState);break;
+            case 1:gun = GameSystem.Pistol.pistol; Debug.Log(gun.GunState);break;
+            case 2:gun = GameSystem.Rifle.rifle; Debug.Log(gun.GunState);break;
         }
 
+    }
+    /// <summary>
+    /// 切换弹夹
+    /// </summary>
+    private void ChangeBullets()
+    {
+        if(gun == null)
+        {
+            Debug.Log("false");
+            return;
+        }
+        else
+        {
+            if (gun.GunState == 1)
+            {
+                //当持枪为手枪时
+                currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;//默认弹夹为01
+                //按某个键切换弹夹
+                //if (Input.GetKeyDown(KeyCode.I))
+                //{
+                //    currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets02;
+                //}
+
+            }
+            if (gun.GunState == 2)
+            {
+                currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
+            }
+        }
     }
     /// <summary>
     /// 装弹
@@ -80,12 +114,34 @@ public class PlayController : MonoBehaviour {
     /// </summary>
     private void Shoot()
     {
-
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (bulletIndex > 5)
+            {
+                return;
+            }
+            else
+            {
+                currentBullet = GameSystem.BulletSystem.GetBullet(bulletIndex, currentBullets);
+                //动态加载对应的子弹实例
+                //背包系统对应子弹数量减少
+                Debug.Log(currentBullet.propName);
+                bulletIndex += 1;
+            }
+        }
+        
     }
     /// <summary>
     /// 射击锁定
     /// </summary>
     private void LockEmeny()
+    {
+
+    }
+    /// <summary>
+    /// 搜索尸体
+    /// </summary>
+    private void SearchBody()
     {
 
     }
@@ -125,7 +181,7 @@ namespace GameSystem
     /// </summary>
     public class Pistol : Gun
     {
-        public override void Init()
+        public Pistol()
         {
             maxBulletNumber = 50;
             GunState = 1;
@@ -139,7 +195,7 @@ namespace GameSystem
     /// </summary>
     public class Rifle : Gun
     {
-        public override void Init()
+        public Rifle()
         {
             maxBulletNumber = 30;
             GunState = 2;

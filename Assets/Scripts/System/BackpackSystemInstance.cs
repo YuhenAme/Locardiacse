@@ -60,17 +60,43 @@ namespace GameSystem
                                                           //子弹节点
                     xmlTextWriter.WriteStartElement("子弹数");
                     //手枪子弹数
-                    xmlTextWriter.WriteStartElement("手枪子弹数量");
+                    xmlTextWriter.WriteStartElement("第一型手枪子弹");
                     xmlTextWriter.WriteStartElement("数量");
                     xmlTextWriter.WriteString("10");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
-                    //步枪子弹数
-                    xmlTextWriter.WriteStartElement("步枪子弹数量");
+                    //子弹数
+                    xmlTextWriter.WriteStartElement("第二型手枪子弹");
                     xmlTextWriter.WriteStartElement("数量");
                     xmlTextWriter.WriteString("10");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
+
+                    xmlTextWriter.WriteStartElement("第三型手枪子弹");
+                    xmlTextWriter.WriteStartElement("数量");
+                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteEndElement();
+                    xmlTextWriter.WriteEndElement();
+
+                    xmlTextWriter.WriteStartElement("第一型步枪子弹");
+                    xmlTextWriter.WriteStartElement("数量");
+                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteEndElement();
+                    xmlTextWriter.WriteEndElement();
+
+                    xmlTextWriter.WriteStartElement("第二型步枪子弹");
+                    xmlTextWriter.WriteStartElement("数量");
+                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteEndElement();
+                    xmlTextWriter.WriteEndElement();
+
+                    xmlTextWriter.WriteStartElement("第三型步枪子弹");
+                    xmlTextWriter.WriteStartElement("数量");
+                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteEndElement();
+                    xmlTextWriter.WriteEndElement();
+
+
                     //子弹节点结束
                     xmlTextWriter.WriteEndElement();
                     //其他道具节点
