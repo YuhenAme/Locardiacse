@@ -30,6 +30,8 @@ public class PlayController : MonoBehaviour {
         ChangeWeapon();
         ChangeBullets();
         Shoot();
+        Reload(currentBullets);
+        
     }
 
 
@@ -99,15 +101,31 @@ public class PlayController : MonoBehaviour {
             if (gun.GunState == 2)
             {
                 currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
+
+
+
             }
         }
     }
     /// <summary>
     /// 装弹
     /// </summary>
-    private void Reload()
+    private void Reload(Prop[] Bullets)
     {
+        if (Bullets != null)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                bulletIndex = 0;
+                //按照对应的弹夹中子弹的顺序从背包依次减少子弹数量
 
+            }
+        }
+        else
+        {
+            return;
+        }
+        
     }
     /// <summary>
     /// 射击
@@ -125,8 +143,16 @@ public class PlayController : MonoBehaviour {
                 currentBullet = GameSystem.BulletSystem.GetBullet(bulletIndex, currentBullets);
                 //动态加载对应的子弹实例
                 //背包系统对应子弹数量减少
-                Debug.Log(currentBullet.propName);
-                bulletIndex += 1;
+                if(currentBullet == null)
+                {
+                    Debug.Log("当前弹夹无子弹配置");
+                }
+                else
+                {
+                    Debug.Log(currentBullet.propName);
+                    bulletIndex += 1;
+                }
+                
             }
         }
         

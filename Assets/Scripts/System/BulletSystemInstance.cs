@@ -54,6 +54,22 @@ namespace GameSystem
         {
             return (bullets[index]);
         }
-
+        /// <summary>
+        /// 复制弹夹
+        /// </summary>
+        /// <param name="p1">被复制的弹夹</param>
+        /// <param name="p2">复制的弹夹</param>
+        public static void CopyBullets(Prop[] p1,Prop[] p2)
+        {
+            p2 = p1;
+        }
+        /// <summary>
+        /// 删除弹夹配置
+        /// </summary>
+        /// <param name="p"></param>
+        public static void DeleteBullets(Prop[] p)
+        {
+            p = null;
+        }
     }
 }
