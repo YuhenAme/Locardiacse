@@ -31,6 +31,7 @@ public class PlayController : MonoBehaviour {
         ChangeBullets();
         Shoot();
         Reload(currentBullets);
+        //Debug.Log(currentBullets);
         
     }
 
@@ -41,7 +42,7 @@ public class PlayController : MonoBehaviour {
     /// </summary>
     private void Move()
     {
-
+       
     }
     /// <summary>
     /// 蹲下
@@ -89,21 +90,55 @@ public class PlayController : MonoBehaviour {
         {
             if (gun.GunState == 1)
             {
-                //当持枪为手枪时
-                currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;//默认弹夹为01
-                //按某个键切换弹夹
-                //if (Input.GetKeyDown(KeyCode.I))
+                //if(currentBullets == null)
                 //{
-                //    currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets02;
+                //    Debug.Log("请给子弹上膛");
                 //}
-
+                //当持枪为手枪时
+                //currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;//默认弹夹为01
+                //按某个键切换弹夹，1为弹夹1，2为弹夹2，3为弹夹3
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    Debug.Log("更换为1号弹夹");
+                    bulletIndex = 0;
+                    currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;
+                    //对应背包交互
+                    //减少对应的子弹数量,子弹数量立即从背包中减少，而不是通过射出子弹而减少数量s
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    Debug.Log("更换为2号弹夹");
+                    bulletIndex = 0;
+                    currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets02;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    Debug.Log("更换为3号弹夹");
+                    bulletIndex = 0;
+                    currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets03;
+                }
             }
             if (gun.GunState == 2)
             {
-                currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
-
-
-
+                //currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    Debug.Log("更换为1号弹夹");
+                    bulletIndex = 0;
+                    currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    Debug.Log("更换为2号弹夹");
+                    bulletIndex = 0;
+                    currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets02;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    Debug.Log("更换为3号弹夹");
+                    bulletIndex = 0;
+                    currentBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets03;
+                }
             }
         }
     }
@@ -134,26 +169,29 @@ public class PlayController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if (bulletIndex > 5)
+            if(gun != null)
             {
-                return;
-            }
-            else
-            {
-                currentBullet = GameSystem.BulletSystem.GetBullet(bulletIndex, currentBullets);
-                //动态加载对应的子弹实例
-                //背包系统对应子弹数量减少
-                if(currentBullet == null)
+                if (bulletIndex > 5)
                 {
-                    Debug.Log("当前弹夹无子弹配置");
+                    return;
                 }
                 else
                 {
-                    Debug.Log(currentBullet.propName);
-                    bulletIndex += 1;
+                    currentBullet = GameSystem.BulletSystem.GetBullet(bulletIndex, currentBullets);
+                    //动态加载对应的子弹实例
+                    //背包系统对应子弹数量减少
+                    if (currentBullet == null)
+                    {
+                        Debug.Log("当前弹夹无子弹配置");
+                    }
+                    else
+                    {
+                        Debug.Log(currentBullet.propName);
+                        bulletIndex += 1;
+                    }
                 }
-                
             }
+            
         }
         
     }
@@ -197,10 +235,6 @@ namespace GameSystem
         public int maxBulletNumber;//最大子弹数
         public int GunState;//当前枪的状态
         public int GunDamage;//子弹伤害
-        public virtual void Init()
-        {
-
-        }
     }
     /// <summary>
     /// 手枪设置
@@ -213,7 +247,6 @@ namespace GameSystem
             GunState = 1;
             GunDamage = 10;
         }
-
         public static Gun pistol { get { return new Pistol(); } }
     }
     /// <summary>
@@ -227,7 +260,6 @@ namespace GameSystem
             GunState = 2;
             GunDamage = 30;
         }
-
         public static Gun rifle { get { return new Rifle(); } }
     }
 }

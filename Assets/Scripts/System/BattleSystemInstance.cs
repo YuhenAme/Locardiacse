@@ -83,5 +83,15 @@ namespace GameSystem
 
             return Setting.lockedEmeny;
         }
+        /// <summary>
+        /// 阴影机制
+        /// </summary>
+        public static void Shadow()
+        {
+            Transform playerPos = GameObject.FindGameObjectWithTag("Player").transform;//得到主角的位置
+
+        }
+        
+
     }
 }
