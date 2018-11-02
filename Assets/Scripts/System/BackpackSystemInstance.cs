@@ -155,12 +155,13 @@ namespace GameSystem
                 }
                 else
                 {
-                    //节点不存在时,创建道具节点
-                    XmlNode root = backpack.SelectSingleNode("道具");
-                    XmlElement thisNode = backpack.CreateElement(nodeName);//创建一个节点
-                    XmlElement thisNumber = backpack.CreateElement("数量");
-                    thisNumber.InnerText = number.ToString();
-                    thisNode.AppendChild(thisNumber);
+                    ////节点不存在时,创建道具节点
+                    //XmlNode root = backpack.SelectSingleNode("道具");
+                    //XmlElement thisNode = backpack.CreateElement(nodeName);//创建一个节点
+                    //XmlElement thisNumber = backpack.CreateElement("数量");
+                    //thisNumber.InnerText = number.ToString();
+                    //thisNode.AppendChild(thisNumber);
+                    return;
                 }
             }
             backpack.Save(Setting.defaultPath);
@@ -203,6 +204,8 @@ namespace GameSystem
             //根据选择存档来设置背包路径
             //...
         }
+
+        
 
     }
 }

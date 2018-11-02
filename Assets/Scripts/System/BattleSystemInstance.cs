@@ -14,7 +14,9 @@ namespace GameSystemInstance
             public  List<GameObject> emenyList;
             //锁定的敌人
             public  GameObject lockedEmeny;
-            
+
+            public List<GameObject> lightList;
+
         }
         public Setting setting;
     }
@@ -28,6 +30,7 @@ namespace GameSystem
         //加载设置
         private static GameSystemInstance.BattleSystemInstance.Setting Setting { get { return Instance.setting; } }
 
+        //private static List<GameObject> lights; 
         private static int index = 0;
         private static int count;
 
@@ -37,28 +40,8 @@ namespace GameSystem
         /// <returns></returns>
         public static List<GameObject> GetEmeny()
         {
-            //敌人的list
-            GameObject[] emenys = GameObject.FindGameObjectsWithTag("Emeny");
-            foreach (GameObject emeny in emenys)
-            {
-                Vector2 emenyPos = Camera.main.WorldToViewportPoint(emeny.transform.position);
-                if (emenyPos.x < 1 && emenyPos.x > 0 && emenyPos.y > 0 && emenyPos.y < 1)
-                {
-                    if (!Setting.emenyList.Contains(emeny))
-                    {
-                        Setting.emenyList.Add(emeny);
-                    }
-                }
-                else
-                {
-                    if (Setting.emenyList.Contains(emeny))
-                    {
-                        Setting.emenyList.Remove(emeny);
-                    }
-                }
-            }
+            Setting.emenyList = GetObjects(Setting.emenyList, "Emeny");
             return Setting.emenyList;
-           
         }
         /// <summary>
         /// 索敌
@@ -88,10 +71,88 @@ namespace GameSystem
         /// </summary>
         public static void Shadow()
         {
+            GetLights();
+            GameObject shadow = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject;//阴影
             Transform playerPos = GameObject.FindGameObjectWithTag("Player").transform;//得到主角的位置
+            //玩家的高度
+            float playerHeight = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>().bounds.size.y;
+            Vector3 playerHeightPoint = new Vector3(playerPos.position.x, (playerPos.position.y + playerHeight / 2), 0);
+            float defaultShadowSize = shadow.GetComponent<BoxCollider2D>().bounds.size.x;//默认阴影的长度
+            //对每个处于屏幕内的光照
+            foreach (GameObject light in Setting.lightList)
+            {
+                float lightRightPos = light.GetComponent<MyLight>().rightDis;
+                float lightLeftPos = light.GetComponent<MyLight>().leftDis;
+                //当主角进入光照范围内开始产生阴影
+                if(playerPos.position.x>(light.transform.position.x-lightLeftPos) && playerPos.position.x < (light.transform.position.x + lightRightPos))
+                {
+                    //出现阴影
+                    shadow.SetActive(true);
+                    //计算出相切时的位置
+                   
+                    //在相切范围以内时
+                    Vector3 lightLine = light.transform.position - playerHeightPoint;
+                    float shadowSize = (playerHeight * lightLine.x) / lightLine.y;
+                    float scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
+                    if (scaleX2 <= 0.5f)
+                    {
+                        scaleX2 = 0.5f;
+                    }
+                    shadow.transform.localScale = new Vector3(scaleX2, 1, 1);
+                }
+                else
+                {
+                    //阴影消失
+                    shadow.SetActive(false);
+                }
+            }
+
+
+
+
 
         }
-        
+        /// <summary>
+        /// 获取处于屏幕范围内的光照
+        /// </summary>
+        /// <returns></returns>
+        private static List<GameObject> GetLights()
+        {
+            Setting.lightList = GetObjects(Setting.lightList, "Light");
+            return Setting.lightList;
+        }
+
+
+        /// <summary>
+        /// 获取屏幕内物体的模板方法
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="tag"></param>
+        /// <returns></returns>
+        private static List<GameObject> GetObjects(List<GameObject> objects,string tag)
+        {
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
+            foreach(GameObject go in gameObjects)
+            {
+                Vector2 goPos = Camera.main.WorldToViewportPoint(go.transform.position);
+                if(goPos.x<1 && goPos.x>0 && goPos.y<1 && goPos.y > 0)
+                {
+                    if (!objects.Contains(go))
+                    {
+                        objects.Add(go);
+                    }
+                }
+                else
+                {
+                    if (objects.Contains(go))
+                    {
+                        objects.Remove(go);
+                    }
+                }
+            }
+            return objects;
+        }
+
 
     }
 }

@@ -71,5 +71,24 @@ namespace GameSystem
         {
             p = null;
         }
+        /// <summary>
+        /// 与背包系统交互,根据弹夹减少子弹数量
+        /// </summary>
+        public static void ChangeBulletsNumber(Prop[] p)
+        {
+            if (p != null)
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    GameSystem.BackpackSystem.RemoveProp(p[i].propName, 1);
+                }
+
+            }
+            else
+            {
+                return;
+            }
+            
+        }
     }
 }

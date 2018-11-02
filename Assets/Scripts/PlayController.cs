@@ -153,7 +153,7 @@ public class PlayController : MonoBehaviour {
             {
                 bulletIndex = 0;
                 //按照对应的弹夹中子弹的顺序从背包依次减少子弹数量
-
+                
             }
         }
         else
