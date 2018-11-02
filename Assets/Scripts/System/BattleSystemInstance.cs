@@ -10,13 +10,14 @@ namespace GameSystemInstance
         [System.Serializable]
         public class Setting
         {
-            //敌人的list
+            [Header("敌人列表")]
             public  List<GameObject> emenyList;
-            //锁定的敌人
+            [Header("锁定的敌人")]
             public  GameObject lockedEmeny;
-
+            [Header("光列表")]
             public List<GameObject> lightList;
-
+            [Header("阴影放大系数")][Range(1.0f,2.0f)]
+            public float shadowCoefficient = 1;
         }
         public Setting setting;
     }
@@ -83,6 +84,7 @@ namespace GameSystem
             {
                 float lightRightPos = light.GetComponent<MyLight>().rightDis;
                 float lightLeftPos = light.GetComponent<MyLight>().leftDis;
+                float scaleX2;
                 //当主角进入光照范围内开始产生阴影
                 if(playerPos.position.x>(light.transform.position.x-lightLeftPos) && playerPos.position.x < (light.transform.position.x + lightRightPos))
                 {
@@ -90,15 +92,22 @@ namespace GameSystem
                     shadow.SetActive(true);
                     //计算出相切时的位置
                    
-                    //在相切范围以内时
                     Vector3 lightLine = light.transform.position - playerHeightPoint;
-                    float shadowSize = (playerHeight * lightLine.x) / lightLine.y;
-                    float scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
-                    if (scaleX2 <= 0.5f)
+                    float shadowSizeMax = (playerHeight * lightLine.x) / lightLine.y;
+                    if(playerPos.position.x < (light.transform.position.x - lightLeftPos+shadowSizeMax))
                     {
-                        scaleX2 = 0.5f;
+                        float shadowSize = playerPos.position.x - (light.transform.position.x - lightLeftPos);
+                        scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
-                    shadow.transform.localScale = new Vector3(scaleX2, 1, 1);
+                    else
+                    {
+                        scaleX2 = (shadowSizeMax * shadow.transform.localScale.x) / defaultShadowSize;
+                    }
+                    if (scaleX2 <= 0.5f)
+                        scaleX2 = 0.5f;
+                    shadow.transform.localScale = new Vector3(scaleX2*Setting.shadowCoefficient, 1, 1);
+
+
                 }
                 else
                 {
