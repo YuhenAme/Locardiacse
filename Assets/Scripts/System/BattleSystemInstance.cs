@@ -86,34 +86,66 @@ namespace GameSystem
                 float lightLeftPos = light.GetComponent<MyLight>().leftDis;
                 float scaleX2;
                 //当主角进入光照范围内开始产生阴影
-                if(playerPos.position.x>(light.transform.position.x-lightLeftPos) && playerPos.position.x < (light.transform.position.x + lightRightPos))
+                //计算出相切时的位置
+                Vector3 LightLine = light.transform.position - (new Vector3(light.transform.position.x - lightLeftPos, 0, 0));
+                float shadowSizeMax = (playerHeight * Mathf.Abs(LightLine.x)) / LightLine.y;
+                if (playerPos.position.x>(light.transform.position.x-lightLeftPos) && playerPos.position.x < light.transform.position.x)
                 {
                     //出现阴影
                     shadow.SetActive(true);
-                    //计算出相切时的位置
-                   
-                    Vector3 lightLine = light.transform.position - playerHeightPoint;
-                    float shadowSizeMax = (playerHeight * lightLine.x) / lightLine.y;
-                    if(playerPos.position.x < (light.transform.position.x - lightLeftPos+shadowSizeMax))
+                    
+                    //随人物位置变化的射线，实时;
+                    Vector3 LightLineChange = light.transform.position - playerHeightPoint;
+                    //左半部分
+                    if (playerPos.position.x<(light.transform.position.x - lightLeftPos + shadowSizeMax))
                     {
                         float shadowSize = playerPos.position.x - (light.transform.position.x - lightLeftPos);
                         scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
                     else
                     {
-                        scaleX2 = (shadowSizeMax * shadow.transform.localScale.x) / defaultShadowSize;
+                        float shadowSize = (playerHeight * Mathf.Abs(LightLineChange.x)) / LightLineChange.y;
+                        scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
                     if (scaleX2 <= 0.5f)
                         scaleX2 = 0.5f;
                     shadow.transform.localScale = new Vector3(scaleX2*Setting.shadowCoefficient, 1, 1);
+                    
+                    //计算阴影的相对位置!!!!!
 
+                }
+                else if(playerPos.position.x>light.transform.position.x && playerPos.position.x< light.transform.position.x + lightRightPos)
+                {
+                    //出现阴影
+                    shadow.SetActive(true);
 
+                    //随人物位置变化的射线，实时;
+                    Vector3 LightLineChange = light.transform.position - playerHeightPoint;
+                    //右半部分
+                    if (playerPos.position.x > (light.transform.position.x + lightRightPos - shadowSizeMax))
+                    {
+                        float shadowSize = (light.transform.position.x + lightRightPos) - playerPos.position.x;
+                        scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
+                    }
+                    else
+                    {
+                        float shadowSize = (playerHeight * Mathf.Abs(LightLineChange.x)) / LightLineChange.y;
+                        scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
+                    }
+                    if (scaleX2 <= 0.5f)
+                        scaleX2 = 0.5f;
+                    shadow.transform.localScale = new Vector3(scaleX2 * Setting.shadowCoefficient, 1, 1);
                 }
                 else
                 {
                     //阴影消失
                     shadow.SetActive(false);
                 }
+
+
+
+
+
             }
 
 

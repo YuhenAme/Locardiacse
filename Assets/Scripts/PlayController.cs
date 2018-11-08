@@ -83,7 +83,7 @@ public class PlayController : MonoBehaviour {
     {
         if(gun == null)
         {
-            Debug.Log("false");
+            //Debug.Log("false");
             return;
         }
         else

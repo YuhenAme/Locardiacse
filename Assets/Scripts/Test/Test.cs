@@ -8,8 +8,8 @@ public class Test : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //测试xml
-        //GameSystem.BackpackSystem.CreateBackpack();
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayController>();
+        GameSystem.BackpackSystem.CreateBackpack();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayController>();
 
     }
 	
@@ -17,9 +17,8 @@ public class Test : MonoBehaviour {
 	void Update () {
         //测试阴影------------------------------
         //GameSystem.BattleSystem.GetEmeny();
-        GameSystem.BattleSystem.Shadow();
+        //GameSystem.BattleSystem.Shadow();
         //测试剧本系统--------------------------
-        //GameSystem.BattleSystem.GetEmeny();
         //GameSystem.ScriptSystem.PlayScript("dialogues", "dialogues");
         //Debug.Log(GameSystem.ScriptSystem.GetRole() + GameSystem.ScriptSystem.GetRoleDetail());
         //--------------------------------------
@@ -55,9 +54,9 @@ public class Test : MonoBehaviour {
         //    //    }
         //    //}
         //}
-        
 
-        
+
+
 
 
     }
