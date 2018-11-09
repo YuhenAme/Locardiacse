@@ -93,58 +93,58 @@ namespace GameSystem
                 {
                     //出现阴影
                     shadow.SetActive(true);
-                    
-                    //随人物位置变化的射线，实时;
-                    Vector3 LightLineChange = light.transform.position - playerHeightPoint;
+                    float shadowSize;
+                   
                     //左半部分
                     if (playerPos.position.x<(light.transform.position.x - lightLeftPos + shadowSizeMax))
                     {
-                        float shadowSize = playerPos.position.x - (light.transform.position.x - lightLeftPos);
+                        shadowSize = playerPos.position.x - (light.transform.position.x - lightLeftPos);
                         scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
                     else
                     {
-                        float shadowSize = (playerHeight * Mathf.Abs(LightLineChange.x)) / LightLineChange.y;
+                        //随人物位置变化的射线，实时;
+                        Vector3 LightLineChange = light.transform.position - playerHeightPoint;
+                        shadowSize = (playerHeight * Mathf.Abs(LightLineChange.x)) / LightLineChange.y + 0.3f;
                         scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
                     if (scaleX2 <= 0.5f)
                         scaleX2 = 0.5f;
                     shadow.transform.localScale = new Vector3(scaleX2*Setting.shadowCoefficient, 1, 1);
-                    
                     //计算阴影的相对位置!!!!!
+                    shadow.transform.localPosition = new Vector3(-(0.1f+(shadowSize / 2)), shadow.transform.localPosition.y, 0);
 
                 }
                 else if(playerPos.position.x>light.transform.position.x && playerPos.position.x< light.transform.position.x + lightRightPos)
                 {
                     //出现阴影
                     shadow.SetActive(true);
-
+                    float shadowSize;
                     //随人物位置变化的射线，实时;
                     Vector3 LightLineChange = light.transform.position - playerHeightPoint;
                     //右半部分
                     if (playerPos.position.x > (light.transform.position.x + lightRightPos - shadowSizeMax))
                     {
-                        float shadowSize = (light.transform.position.x + lightRightPos) - playerPos.position.x;
+                        shadowSize = (light.transform.position.x + lightRightPos) - playerPos.position.x;
                         scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
                     else
                     {
-                        float shadowSize = (playerHeight * Mathf.Abs(LightLineChange.x)) / LightLineChange.y;
+                        shadowSize = (playerHeight * Mathf.Abs(LightLineChange.x)) / LightLineChange.y + 0.3f;
                         scaleX2 = (shadowSize * shadow.transform.localScale.x) / defaultShadowSize;
                     }
                     if (scaleX2 <= 0.5f)
                         scaleX2 = 0.5f;
                     shadow.transform.localScale = new Vector3(scaleX2 * Setting.shadowCoefficient, 1, 1);
+                    //计算阴影的相对位置!!!!!
+                    shadow.transform.localPosition = new Vector3(-0.1f+(shadowSize / 2), shadow.transform.localPosition.y, 0);
+
                 }
                 else
                 {
                     //阴影消失
                     shadow.SetActive(false);
                 }
-
-
-
-
 
             }
 
@@ -165,7 +165,7 @@ namespace GameSystem
 
 
         /// <summary>
-        /// 获取屏幕内物体的模板方法
+        /// 获取屏幕内物体的方法
         /// </summary>
         /// <param name="objects"></param>
         /// <param name="tag"></param>

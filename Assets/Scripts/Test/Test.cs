@@ -17,7 +17,7 @@ public class Test : MonoBehaviour {
 	void Update () {
         //测试阴影------------------------------
         //GameSystem.BattleSystem.GetEmeny();
-        //GameSystem.BattleSystem.Shadow();
+        GameSystem.BattleSystem.Shadow();
         //测试剧本系统--------------------------
         //GameSystem.ScriptSystem.PlayScript("dialogues", "dialogues");
         //Debug.Log(GameSystem.ScriptSystem.GetRole() + GameSystem.ScriptSystem.GetRoleDetail());
