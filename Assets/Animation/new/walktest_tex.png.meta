@@ -1,0 +1,823 @@
+fileFormatVersion: 2
+guid: d19fff03115544648a93ffcc16577c97
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hairT
+    21300002: ammo
+    21300004: legL1
+    21300006: hairTL
+    21300008: armR3
+    21300010: armL3
+    21300012: face
+    21300014: mouth1
+    21300016: mouth2
+    21300018: mouth3
+    21300020: armR2
+    21300022: legL2
+    21300024: armL2
+    21300026: armL1
+    21300028: legR1
+    21300030: eyeR1
+    21300032: eyeR2
+    21300034: eyeR3
+    21300036: eyeR4
+    21300038: eyeR5
+    21300040: shadow
+    21300042: gun
+    21300044: bagR
+    21300046: armR1
+    21300048: hairTR
+    21300050: tie
+    21300052: gln
+    21300054: legR2
+    21300056: eyeL1
+    21300058: eyeL2
+    21300060: eyeL3
+    21300062: eyeL4
+    21300064: eyeL5
+    21300066: bag
+    21300068: bagL
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hairT
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 379
+        width: 69
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5072464, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f88264931c0c20d4e82d313d1827c5e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammo
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 294
+        width: 16
+        height: 20
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2017111e69def0d4189d97d4e0d28530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legL1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 294
+        width: 24
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.515625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194aa5e7c8f713041afabcfe78fc2de4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hairTL
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 348
+        width: 9
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.53571427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c335c37b569a9cb43b467059939cea5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armR3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 295
+        width: 22
+        height: 19
+      alignment: 9
+      pivot: {x: 0.52272725, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0e24c1039791e4aa85a4e7f06b9e75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armL3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 295
+        width: 16
+        height: 19
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966b77f44c2312842a32ae8c6f4f7a67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 405
+        width: 66
+        height: 66
+      alignment: 9
+      pivot: {x: 0.50757575, y: 0.50757575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5773a7d1c6d09cc4096fcccb11083336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 352
+        width: 6
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5833333, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1f4d10e3c89b2b42bbce397ffd6a45e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth2
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 317
+        width: 7
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5714286, y: 0.5555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2cf0085db979d4c8e5de9131f71b31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 405
+        width: 10
+        height: 3
+      alignment: 9
+      pivot: {x: 0.55, y: 0.6666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bc2ca16bc440d4f951375504d31d07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armR2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 296
+        width: 24
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.5277778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72bfc93183b109b47b023a68ca2b28c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legL2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 328
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa4be27a02eb6a48bd211bb401c2cc3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armL2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 295
+        width: 29
+        height: 23
+      alignment: 9
+      pivot: {x: 0.51724136, y: 0.5217391}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a53b28d3fa71441b2d7766194e0567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armL1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 247
+        width: 22
+        height: 27
+      alignment: 9
+      pivot: {x: 0.52272725, y: 0.5185185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bed315b53579c4e8206e76014bfba9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legR1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 283
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dacfc08424b37854db0b52333bad36b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeR1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 331
+        width: 28
+        height: 31
+      alignment: 9
+      pivot: {x: 0.51785713, y: 0.516129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5b0fa2d1e86334999694c124957c9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeR2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 29
+        height: 30
+      alignment: 9
+      pivot: {x: 0.51724136, y: 0.51666665}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ebf04214af8f0d44be3e0f3f228b2e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeR3
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 245
+        width: 22
+        height: 29
+      alignment: 9
+      pivot: {x: 0.52272725, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93dbf94ee4bb4af45828a6d8aaf78706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeR4
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 307
+        width: 17
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.51785713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64418871481401849b4265523b142322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeR5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 254
+        width: 25
+        height: 27
+      alignment: 9
+      pivot: {x: 0.52, y: 0.5185185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28bc92bf7169be48ae971a162bde4ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadow
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 316
+        width: 58
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5086207, y: 0.53846157}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ecbeb75057348b4c8ebb8611e31435e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 473
+        width: 124
+        height: 38
+      alignment: 9
+      pivot: {x: 0.50403225, y: 0.5131579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d168a3c1148cdd744ac2659d6245ce65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bagR
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 337
+        width: 32
+        height: 25
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb33dce82c460f4aab64d572ff45940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armR1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 234
+        width: 23
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5217391, y: 0.5185185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4d6ca83711c0d4fa6c62c7c9ccc261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hairTR
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 300
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.53571427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6840cb05ea32b814cb11ab7f5cad4a72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tie
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 408
+        width: 38
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5131579, y: 0.53846157}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7d569477002a641bdfdff53e0ba2e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gln
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 349
+        width: 14
+        height: 29
+      alignment: 9
+      pivot: {x: 0.53571427, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdb9ffe7ceb3d740bc0dd43134d6301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legR2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 316
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c624b65a88cd72842a3243b4c30bb8b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeL1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 263
+        width: 22
+        height: 29
+      alignment: 9
+      pivot: {x: 0.52272725, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca29d4f7867fe994886ed84b3e14185b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeL2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 223
+        width: 21
+        height: 29
+      alignment: 9
+      pivot: {x: 0.52380955, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c500bf165c54e4fb19aa8493345e8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeL3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 292
+        width: 15
+        height: 26
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.5192308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70316cb9f0c551f418a207d8e3b8f653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeL4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 380
+        width: 15
+        height: 28
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.51785713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ba4402f2295e546be9e123dad48343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeL5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 15
+        height: 27
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.5185185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00ffd802033e324dbb3506608fd5f05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bag
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 352
+        width: 56
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5089286, y: 0.52}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1d0c93ae9a1c6c44854d78c7ea28ad4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bagL
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 263
+        width: 25
+        height: 29
+      alignment: 9
+      pivot: {x: 0.52, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b318bff13a97248911c6c1b42ee81e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d242f90f99631e5439bb1c532c7ed594
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

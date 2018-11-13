@@ -73,7 +73,7 @@ namespace GameSystem
         public static void Shadow()
         {
             GetLights();
-            GameObject shadow = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject;//阴影
+            GameObject shadow = GameObject.FindGameObjectWithTag("PlayerController").transform.GetChild(0).gameObject;//阴影
             Transform playerPos = GameObject.FindGameObjectWithTag("Player").transform;//得到主角的位置
             //玩家的高度
             float playerHeight = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>().bounds.size.y;

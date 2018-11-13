@@ -7,26 +7,34 @@ using UnityEngine;
 /// </summary>
 public class PlayController : MonoBehaviour {
 
-    [SerializeField][Header("人物血量")]
+    [SerializeField][Header("血量")]
     private float hp = 100;
-    [SerializeField][Header("人物紧张值")][Range(0,100)]
+    [SerializeField][Header("紧张值")][Range(0,100)]
     private float nervous = 0;
     [SerializeField][Header("当前持枪")]
     private GameSystem.Gun gun;
+    [SerializeField][Header("移动速度")][Range(0.1f,10)]
+    private float moveSpeed = 2;
 
     public Prop[] currentBullets = new Prop[6];//当前弹夹
     private Prop currentBullet;//当前子弹
     private int bulletIndex = 0;//当前子弹索引
+    private Animator animator;
 
     int gunStateIndex = 0;
+    GameObject controller;
 
     private void Start()
     {
         gun = null;
+        animator = GetComponent<Animator>();
+        controller = GameObject.FindGameObjectWithTag("PlayerController");
     }
     //人物操作逻辑
     private void Update()
     {
+
+        Move();
         ChangeWeapon();
         ChangeBullets();
         Shoot();
@@ -42,6 +50,35 @@ public class PlayController : MonoBehaviour {
     /// </summary>
     private void Move()
     {
+        controller.transform.position = new Vector3(transform.position.x, controller.transform.position.y, controller.transform.position.z);
+
+        float h = Input.GetAxis("Horizontal");
+        transform.position += new Vector3(h, 0, 0)*Time.deltaTime;
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("isMove", true);
+            Vector3 scale = transform.localScale;
+            if (scale.x > 0)
+            {
+                if (Input.GetKey(KeyCode.A))
+                    scale.x *= -1;
+                else
+                    return;
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.D))
+                    scale.x *= -1;
+                else
+                    return;
+            }
+            transform.localScale = scale;
+            
+        }
+        else
+        {
+            animator.SetBool("isMove", false);
+        }
        
     }
     /// <summary>
