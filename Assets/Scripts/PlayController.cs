@@ -21,6 +21,8 @@ public class PlayController : MonoBehaviour {
     private int bulletIndex = 0;//当前子弹索引
     private Animator animator;
 
+    static string animationName;//动画名字
+    static string animationState;//动画状态转换值
     int gunStateIndex = 0;
     GameObject controller;
 
@@ -39,7 +41,7 @@ public class PlayController : MonoBehaviour {
         ChangeBullets();
         Shoot();
         Reload(currentBullets);
-        //Debug.Log(currentBullets);
+        PlayAnimationOver(animator, animationState, animationName);
         
     }
 
@@ -206,8 +208,9 @@ public class PlayController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if(gun != null)
+            if (gun != null)
             {
+                PlayAnimation("isAttack", "attack");
                 if (bulletIndex > 5)
                 {
                     return;
@@ -264,6 +267,35 @@ public class PlayController : MonoBehaviour {
         else
             return true;
     }
+    /// <summary>
+    /// 封装的播放动画
+    /// </summary>
+    /// <param name="boolName">状态传递变量</param>
+    /// <param name="theAnimationName">动画名</param>
+    private void PlayAnimation(string boolName, string theAnimationName)
+    {
+        animator.SetBool(boolName, true);
+        animationState = boolName;
+        animationName = theAnimationName;
+    }
+    /// <summary>
+    /// 判断动画是否播放完毕并且切换状态
+    /// </summary>
+    /// <param name="theAnimator"></param>
+    /// <param name="isBool">状态传递变量</param>
+    /// <param name="animationName">动画名</param>
+    private void PlayAnimationOver(Animator theAnimator,string isBool,string animationName)
+    {
+        //获取第0层的动画层
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if(info.normalizedTime >= 0.95f && info.IsName(animationName))
+        {
+            
+            animator.SetBool(isBool, false);
+           
+        }
+    }
+
 }
 namespace GameSystem
 {
