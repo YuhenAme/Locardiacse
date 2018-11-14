@@ -14,7 +14,7 @@ public class PlayController : MonoBehaviour {
     [SerializeField][Header("当前持枪")]
     private GameSystem.Gun gun;
     [SerializeField][Header("移动速度")][Range(0.1f,10)]
-    private float moveSpeed = 2;
+    private float moveSpeed = 7;
 
     public Prop[] currentBullets = new Prop[6];//当前弹夹
     private Prop currentBullet;//当前子弹
@@ -55,7 +55,7 @@ public class PlayController : MonoBehaviour {
         controller.transform.position = new Vector3(transform.position.x, controller.transform.position.y, controller.transform.position.z);
 
         float h = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(h, 0, 0)*Time.deltaTime;
+        transform.position += new Vector3(h, 0, 0)*Time.deltaTime*moveSpeed;
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isMove", true);

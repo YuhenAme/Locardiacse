@@ -38,22 +38,22 @@ public class Test : MonoBehaviour {
         //}
         //--------------------------------------  
         //测试子弹系统--------------------------
-        //if (Input.GetMouseButtonDown(0))
-        //{//设置子弹
-        //    GameSystem.BulletSystem.SetBullet(0, PistolBullet.PistolBullet01.pistolBullet01, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
-        //    GameSystem.BulletSystem.SetBullet(1, PistolBullet.PistolBullet02.pistolBullet02, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
-        //    GameSystem.BulletSystem.SetBullet(2, PistolBullet.PistolBullet02.pistolBullet02, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
-        //    GameSystem.BulletSystem.SetBullet(3, PistolBullet.PistolBullet03.pistolBullet03, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
-        //    GameSystem.BulletSystem.SetBullet(4, PistolBullet.PistolBullet01.pistolBullet01, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
-        //    GameSystem.BulletSystem.SetBullet(5, PistolBullet.PistolBullet02.pistolBullet02, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
-        //    //if (player.currentBullets != null)
-        //    //{
-        //    //    for (int i = 0; i <= 5; i++)
-        //    //    {
-        //    //        Debug.Log(GameSystem.BulletSystem.GetBullet(i, player.currentBullets).propName);
-        //    //    }
-        //    //}
-        //}
+        if (Input.GetMouseButtonDown(0))
+        {//设置子弹
+            GameSystem.BulletSystem.SetBullet(0, PistolBullet.PistolBullet01.pistolBullet01, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
+            GameSystem.BulletSystem.SetBullet(1, PistolBullet.PistolBullet02.pistolBullet02, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
+            GameSystem.BulletSystem.SetBullet(2, PistolBullet.PistolBullet02.pistolBullet02, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
+            GameSystem.BulletSystem.SetBullet(3, PistolBullet.PistolBullet03.pistolBullet03, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
+            GameSystem.BulletSystem.SetBullet(4, PistolBullet.PistolBullet01.pistolBullet01, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
+            GameSystem.BulletSystem.SetBullet(5, PistolBullet.PistolBullet02.pistolBullet02, GameSystem.BulletSystem.Instance.setting.pistolBullets01);
+            //if (player.currentBullets != null)
+            //{
+            //    for (int i = 0; i <= 5; i++)
+            //    {
+            //        Debug.Log(GameSystem.BulletSystem.GetBullet(i, player.currentBullets).propName);
+            //    }
+            //}
+        }
 
 
 
