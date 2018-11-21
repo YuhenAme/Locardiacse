@@ -39,14 +39,18 @@ namespace GameSystemInstance
         {//关闭UI界面
             bulletUI.SetActive(false);
         }
-        public void SelectPistolBullets()
+        public void SelectBullets()
         {//选择设置弹夹
             var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
             string s = buttton.name;
             GameObject PistolButton = bulletUI.transform.GetChild(0).gameObject;
+            GameObject RifleButton = bulletUI.transform.GetChild(1).gameObject;
             GameObject PistolBullet01 = PistolButton.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject;
             GameObject PistolBullet02 = PistolButton.transform.GetChild(2).gameObject.transform.GetChild(1).gameObject;
             GameObject PistolBullet03 = PistolButton.transform.GetChild(3).gameObject.transform.GetChild(1).gameObject;
+            GameObject RifleBullet01 = RifleButton.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject;
+            GameObject RifleBullet02 = RifleButton.transform.GetChild(2).gameObject.transform.GetChild(1).gameObject;
+            GameObject RifleBullet03 = RifleButton.transform.GetChild(3).gameObject.transform.GetChild(1).gameObject;
             //Debug.Log(s);
             switch (s)
             {
@@ -68,6 +72,25 @@ namespace GameSystemInstance
                     PistolBullet03.SetActive(true);
                     selectPistolBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets03;
                     break;
+                case "RifleBullets01":
+                    RifleBullet01.SetActive(true);
+                    RifleBullet02.SetActive(false);
+                    RifleBullet03.SetActive(false);
+                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
+                    break;
+                case "RifleBullets02":
+                    RifleBullet01.SetActive(false);
+                    RifleBullet02.SetActive(true);
+                    RifleBullet03.SetActive(false);
+                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets02;
+                    break;
+                case "RifleBullets03":
+                    RifleBullet01.SetActive(false);
+                    RifleBullet02.SetActive(false);
+                    RifleBullet03.SetActive(true);
+                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets03;
+                    break;
+
             }
         }
         public void SeleteBulletType()

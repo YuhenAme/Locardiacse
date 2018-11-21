@@ -43,7 +43,7 @@ namespace GameSystem
        /// <param name="pistolBullets">弹夹</param>
         public static void SetBullet(int index,Prop bullet,Prop[] bullets)
         {
-            bullets[index] = (PistolBullet)bullet;
+            bullets[index] = bullet;
         }
         /// <summary>
         /// 得到子弹
