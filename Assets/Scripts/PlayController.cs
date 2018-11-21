@@ -30,7 +30,7 @@ public class PlayController : MonoBehaviour {
     {
         gun = null;
         animator = GetComponent<Animator>();
-        controller = GameObject.FindGameObjectWithTag("PlayerController");
+        controller = GameObject.FindGameObjectWithTag("ShadowController");
     }
     //人物操作逻辑
     private void Update()
@@ -267,6 +267,8 @@ public class PlayController : MonoBehaviour {
         else
             return true;
     }
+
+    //-------------------------------------------------------
     /// <summary>
     /// 封装的播放动画
     /// </summary>

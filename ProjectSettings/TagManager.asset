@@ -7,6 +7,7 @@ TagManager:
   - Emeny
   - Light
   - PlayerController
+  - ShadowController
   layers:
   - Default
   - TransparentFX
