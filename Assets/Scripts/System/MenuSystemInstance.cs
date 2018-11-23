@@ -94,7 +94,7 @@ namespace GameSystemInstance
             }
         }
         public void SeleteBulletType()
-        {//选择子弹类型
+        {//选择子弹类型，暂时只有手枪子弹，步枪子弹类型等图片出来再加上去
             var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
             string s = buttton.name;
             switch (s)
