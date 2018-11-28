@@ -12,7 +12,7 @@ public class PistolBullet : Prop {
     {
         private PistolBullet01()
         {
-            propName = "第一型手枪子弹";
+            propName = "PistolBullet01";
             propNumber = 10;
         }
         public static PistolBullet01 pistolBullet01 { get { return new PistolBullet01(); } }
@@ -28,7 +28,7 @@ public class PistolBullet : Prop {
     {
         private PistolBullet02()
         {
-            propName = "第二型手枪子弹";
+            propName = "PistolBullet02";
             propNumber = 10;
         }
         public static PistolBullet02 pistolBullet02 { get { return new PistolBullet02(); } }
@@ -44,7 +44,7 @@ public class PistolBullet : Prop {
     {
         private PistolBullet03()
         {
-            propName = "第三型手枪子弹";
+            propName = "PistolBullet03";
             propNumber = 10;
         }
         public static PistolBullet03 pistolBullet03 { get { return new PistolBullet03(); } }

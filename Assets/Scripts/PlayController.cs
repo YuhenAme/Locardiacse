@@ -28,6 +28,7 @@ public class PlayController : MonoBehaviour {
 
     private void Start()
     {
+        
         gun = null;
         animator = GetComponent<Animator>();
         controller = GameObject.FindGameObjectWithTag("ShadowController");
@@ -226,7 +227,8 @@ public class PlayController : MonoBehaviour {
                     }
                     else
                     {
-                        Debug.Log(currentBullet.propName);
+                        GameSystem.BattleSystem.InstanceBullet(currentBullet.propName);
+                        //Debug.Log(currentBullet.propName);
                         bulletIndex += 1;
                     }
                 }

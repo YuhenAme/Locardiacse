@@ -60,19 +60,19 @@ namespace GameSystem
                                                           //子弹节点
                     xmlTextWriter.WriteStartElement("子弹数");
                     //手枪子弹数
-                    xmlTextWriter.WriteStartElement("第一型手枪子弹");
+                    xmlTextWriter.WriteStartElement("PistolBullet01");
                     xmlTextWriter.WriteStartElement("数量");
                     xmlTextWriter.WriteString("10");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
                     //子弹数
-                    xmlTextWriter.WriteStartElement("第二型手枪子弹");
+                    xmlTextWriter.WriteStartElement("PistolBullet02");
                     xmlTextWriter.WriteStartElement("数量");
                     xmlTextWriter.WriteString("10");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
 
-                    xmlTextWriter.WriteStartElement("第三型手枪子弹");
+                    xmlTextWriter.WriteStartElement("PistolBullet03");
                     xmlTextWriter.WriteStartElement("数量");
                     xmlTextWriter.WriteString("10");
                     xmlTextWriter.WriteEndElement();

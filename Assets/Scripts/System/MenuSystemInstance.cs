@@ -90,7 +90,7 @@ namespace GameSystemInstance
                     RifleBullet03.SetActive(true);
                     selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets03;
                     break;
-
+                    
             }
         }
         public void SeleteBulletType()

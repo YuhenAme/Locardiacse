@@ -18,6 +18,8 @@ namespace GameSystemInstance
             public List<GameObject> lightList;
             [Header("阴影放大系数")][Range(1.0f,2.0f)]
             public float shadowCoefficient = 1;
+            [Header("射击口位置")]
+            public Transform firePosition;
         }
         public Setting setting;
     }
@@ -34,6 +36,7 @@ namespace GameSystem
         //private static List<GameObject> lights; 
         private static int index = 0;
         private static int count;
+        private static GameObject bulletInstances = GameObject.Find("bulletInstances");
 
         /// <summary>
         /// 返回emeny的list
@@ -149,10 +152,47 @@ namespace GameSystem
             }
 
 
-
-
+        }
+       /// <summary>
+       /// 对象池实例化子弹
+       /// </summary>
+       /// <param name="tag">子弹的标签</param>
+        public static void InstanceBullet(string tag)
+        {
+            //对象池中子弹总数量
+            int number = bulletInstances.transform.childCount;
+            if (number > 0)
+            {
+                for (int i = 0; i <= number; i++)
+                {
+                    if (bulletInstances.transform.GetChild(i).tag == tag)
+                    {
+                        //若查询到则直接将子弹设置为可见
+                        GameObject clone = bulletInstances.transform.GetChild(i).gameObject;
+                        clone.SetActive(true);
+                        clone.transform.parent = null;//脱离父物体
+                        clone.transform.position = Setting.firePosition.position;//设置位置
+                    }
+                    else
+                    {
+                        //若没有查询到则实例化子弹
+                        GameObject clone = Resources.Load<GameObject>(tag);
+                        GameObject.Instantiate(clone,Setting.firePosition);
+                        clone.tag = tag;
+                    }
+                }
+            }
+            else
+            {
+                //若没有查询到则实例化子弹
+                GameObject clone = Resources.Load<GameObject>(tag);
+                GameObject bullet = GameObject.Instantiate(clone, Setting.firePosition.position,Setting.firePosition.rotation);
+                clone.tag = tag;
+            }
+            
 
         }
+
         /// <summary>
         /// 获取处于屏幕范围内的光照
         /// </summary>

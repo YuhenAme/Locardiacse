@@ -8,6 +8,9 @@ TagManager:
   - Light
   - PlayerController
   - ShadowController
+  - PistolBullet01
+  - PistolBullet02
+  - PistolBullet03
   layers:
   - Default
   - TransparentFX
