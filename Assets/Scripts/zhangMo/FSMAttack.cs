@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FSMAttack : FSMstate {
+
 	[SerializeField]
 	private float speed;
 	public override void onEnter()
