@@ -16,6 +16,7 @@ public class PlayController : MonoBehaviour {
     [SerializeField][Header("移动速度")][Range(0.1f,10)]
     private float moveSpeed = 7;
 
+    public GameObject lockedEmeny;
     public Prop[] currentBullets = new Prop[6];//当前弹夹
     private Prop currentBullet;//当前子弹
     private int bulletIndex = 0;//当前子弹索引
@@ -41,9 +42,11 @@ public class PlayController : MonoBehaviour {
         ChangeWeapon();
         ChangeBullets();
         Shoot();
+        LockEmeny();
         Reload(currentBullets);
         PlayAnimationOver(animator, animationState, animationName);
-        
+
+        Debug.Log(lockedEmeny);
     }
 
 
@@ -207,7 +210,7 @@ public class PlayController : MonoBehaviour {
     /// </summary>
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (gun != null)
             {
@@ -242,7 +245,7 @@ public class PlayController : MonoBehaviour {
     /// </summary>
     private void LockEmeny()
     {
-
+        lockedEmeny=GameSystem.BattleSystem.ChangeEmeny(GameSystem.BattleSystem.GetEmeny());
     }
     /// <summary>
     /// 搜索尸体

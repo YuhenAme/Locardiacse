@@ -36,8 +36,9 @@ namespace GameSystem
         //private static List<GameObject> lights; 
         private static int index = 0;
         private static int count;
-        private static GameObject bulletInstances = GameObject.Find("bulletInstances");
-
+        private static GameObject player = GameObject.FindGameObjectWithTag("Player");
+        public static GameObject bulletInstances = GameObject.Find("bulletInstances");
+        
         /// <summary>
         /// 返回emeny的list
         /// </summary>
@@ -161,35 +162,38 @@ namespace GameSystem
         {
             //对象池中子弹总数量
             int number = bulletInstances.transform.childCount;
+            GameObject clone;
             if (number > 0)
             {
-                for (int i = 0; i <= number; i++)
+                for (int i =number-1; i >=0; i--)
                 {
                     if (bulletInstances.transform.GetChild(i).tag == tag)
                     {
                         //若查询到则直接将子弹设置为可见
-                        GameObject clone = bulletInstances.transform.GetChild(i).gameObject;
+                        clone = bulletInstances.transform.GetChild(i).gameObject;
                         clone.SetActive(true);
                         clone.transform.parent = null;//脱离父物体
                         clone.transform.position = Setting.firePosition.position;//设置位置
-                    }
-                    else
-                    {
-                        //若没有查询到则实例化子弹
-                        GameObject clone = Resources.Load<GameObject>(tag);
-                        GameObject.Instantiate(clone,Setting.firePosition);
-                        clone.tag = tag;
+                        clone.GetComponent<BulletInstance>().moveDir = new Vector3(player.transform.localScale.x, 0, 0);
+                        return;
                     }
                 }
+                //若没有查询到则实例化子弹
+                clone = Resources.Load<GameObject>(tag);
+                clone.GetComponent<BulletInstance>().moveDir = new Vector3(player.transform.localScale.x, 0, 0);
+                GameObject.Instantiate(clone, Setting.firePosition.position, Setting.firePosition.rotation);
+                clone.tag = tag;
             }
             else
             {
                 //若没有查询到则实例化子弹
-                GameObject clone = Resources.Load<GameObject>(tag);
-                GameObject bullet = GameObject.Instantiate(clone, Setting.firePosition.position,Setting.firePosition.rotation);
+                clone = Resources.Load<GameObject>(tag);
+                clone.GetComponent<BulletInstance>().moveDir = new Vector3(player.transform.localScale.x, 0, 0);
+                GameObject.Instantiate(clone, Setting.firePosition.position,Setting.firePosition.rotation);
                 clone.tag = tag;
+                
             }
-            
+           
 
         }
 

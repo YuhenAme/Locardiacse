@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4379934197570046}
   - component: {fileID: 212372946766231188}
+  - component: {fileID: 114601878013845816}
+  - component: {fileID: 61820078132262188}
   m_Layer: 0
   m_Name: PistolBullet03
   m_TagString: PistolBullet03
@@ -34,12 +36,50 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172924618378378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.37, y: 1.99, z: -11.519922}
+  m_LocalPosition: {x: -1.859185, y: 1.8746386, z: -11.519922}
   m_LocalScale: {x: 1.7898749, y: 1.11, z: 1.11}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61820078132262188
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172924618378378}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0014631301, y: 0.00000009313226}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14439952, y: 0.13396451}
+  m_EdgeRadius: 0
+--- !u!114 &114601878013845816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172924618378378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9f9c8b84351544f90c5d1da06e973a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSpeed: 4
+  moveDir: {x: 1, y: 0, z: 0}
 --- !u!212 &212372946766231188
 SpriteRenderer:
   m_ObjectHideFlags: 1
