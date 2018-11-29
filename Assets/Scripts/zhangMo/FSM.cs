@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMstate
+public class FSMstate : MonoBehaviour
 {
 	/// <summary>
 	/// 进入某状态时的初始化工作
@@ -19,49 +19,35 @@ public class FSMstate
 	/// </summary>
 	public virtual void onExit(){}
 
-	public List<FSMTransition> transitions;
+	/// <summary>
+	/// 状态转换间的连接
+	/// </summary>
+	public List<FSMTransition> transitions = new List<FSMTransition>();
+	
 	public FSMTransition validTranstion;
 }
 
 public class FSMTransition
 {
-	FSMstate activeState;
-	FSMstate nextState;
+	public FSMTransition(FSMstate nowState)
+	{
+		activeState = nowState;
+	}
+	// 当前状态
+	protected FSMstate activeState;
+	// 目标状态
+	public FSMstate nextState;
 	public virtual bool isValid(){ return false; }
 	public FSMstate getNextState()
 	{
+		Debug.Log("To get next.");
 		if(activeState.validTranstion != null)
 			return nextState;
 		return null;
 	}
 	public virtual void onTransition(){}
-
-}
-
-class FiniteStateMachine : MonoBehaviour
-{
-	//List<FSMstate> states;
-
-	FSMstate initialState;
-
-	FSMstate activeState;
-	private void Start()
+	public void SetNextState(FSMstate tempState)
 	{
-		activeState = initialState;
+		nextState = tempState;
 	}
-	private void Update()
-	{	
-		if(activeState.validTranstion.isValid())
-		{
-			FSMTransition validTranstion = activeState.validTranstion;
-			activeState.onExit();
-			activeState.validTranstion.getNextState();
-			activeState.onEnter();
-		}
-		else
-		{
-			activeState.onUpdate();
-		}
-	}
-
 }
