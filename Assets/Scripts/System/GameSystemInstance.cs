@@ -12,9 +12,16 @@ namespace GameSystemInstance
     [RequireComponent(typeof(EventSystemInstance))]
     public class GameSystemInstance : MonoBehaviour
     {
-        
+        private PlayController player;
+        void Start()
+        {
+            //测试xml
+            GameSystem.BackpackSystem.CreateBackpack();
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayController>();
+
+        }
         //写流程控制-------------
-        
+
 
 
 

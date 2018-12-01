@@ -78,21 +78,21 @@ namespace GameSystem
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
 
-                    xmlTextWriter.WriteStartElement("第一型步枪子弹");
+                    xmlTextWriter.WriteStartElement("RiflelBullet01");
                     xmlTextWriter.WriteStartElement("数量");
-                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteString("0");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
 
-                    xmlTextWriter.WriteStartElement("第二型步枪子弹");
+                    xmlTextWriter.WriteStartElement("RiflelBullet02");
                     xmlTextWriter.WriteStartElement("数量");
-                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteString("0");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
 
-                    xmlTextWriter.WriteStartElement("第三型步枪子弹");
+                    xmlTextWriter.WriteStartElement("RiflelBullet03");
                     xmlTextWriter.WriteStartElement("数量");
-                    xmlTextWriter.WriteString("10");
+                    xmlTextWriter.WriteString("0");
                     xmlTextWriter.WriteEndElement();
                     xmlTextWriter.WriteEndElement();
 
@@ -126,9 +126,16 @@ namespace GameSystem
             backpack.Load(Setting.defaultPath);
             if (backpack != null)
             {
-                string value;
-                value = backpack.SelectSingleNode("//"+nodeName).ChildNodes[0].InnerText;
-                return value;
+                if(backpack.SelectSingleNode("//" + nodeName) != null)
+                {
+                    string value;
+                    value = backpack.SelectSingleNode("//" + nodeName).ChildNodes[0].InnerText;
+                    return value;
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {

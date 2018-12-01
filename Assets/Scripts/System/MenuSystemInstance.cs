@@ -17,15 +17,23 @@ namespace GameSystemInstance
         public Setting setting;
         private GameObject mainUI;
         private GameObject bulletUI;
+        private GameObject backpackUI;
         //当前选中的子弹类型
         public PistolBullet selectPistolBullet;
         //当前选中的弹夹
         public Prop[] selectPistolBullets;
 
+        enum PropType
+        {
+            pistolBullet01,pistolBullet02,pistolBullet03
+        }
+
         private void Start()
         {
             mainUI = GameObject.Find("MainUI");
             bulletUI = mainUI.transform.GetChild(1).gameObject;
+            backpackUI = mainUI.transform.GetChild(3).gameObject;
+            
         }
 
 
@@ -123,8 +131,28 @@ namespace GameSystemInstance
 
         }
 
+        //背包系统UI----------------------------------
+        //呼出背包UI界面
+        public void OnBackpackButtonDown()
+        {
+            backpackUI.SetActive(true);
+            //加载背包内的数据
+            //根据Type的类型查询背包中道具的数量，如果为0则跳过改节点，Type++;
+            //若查询到，格子[i]，子物体加上道具图片;i++;
+            
 
-
+        }
+        public void ExitBackpackButton()
+        {
+            backpackUI.SetActive(false);
+        }
+        //选中道具，显示出介绍
+        public void SelectProp()
+        {
+            var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+            //Prop selectProp;
+            //show(selectProp.propIntroduce);
+        }
     }
 }
 namespace GameSystem
