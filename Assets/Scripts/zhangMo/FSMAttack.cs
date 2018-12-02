@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FSMAttack : FSMstate {
-
+	public FSMAttack(GameObject thisGameObj):base(thisGameObj)
+	{
+		enemyObject = thisGameObj;
+	}
 	[SerializeField]
 	private float speed;
 	public override void onEnter()

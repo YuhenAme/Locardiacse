@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMstate : MonoBehaviour
+public class FSMstate
 {
+	protected GameObject enemyObject;
+	protected Transform enemyTrans;
+	public FSMstate(GameObject thisGameObj)
+	{
+		enemyObject = thisGameObj;
+	}
 	/// <summary>
 	/// 进入某状态时的初始化工作
 	/// </summary>
@@ -25,6 +31,10 @@ public class FSMstate : MonoBehaviour
 	public List<FSMTransition> transitions = new List<FSMTransition>();
 	
 	public FSMTransition validTranstion;
+	public GameObject getEnemyObject()
+	{
+		return enemyObject;
+	}
 }
 
 public class FSMTransition
@@ -42,7 +52,11 @@ public class FSMTransition
 	{
 		Debug.Log("To get next.");
 		if(activeState.validTranstion != null)
+		{
+			Debug.Log("return the next state!");
 			return nextState;
+		}
+
 		return null;
 	}
 	public virtual void onTransition(){}

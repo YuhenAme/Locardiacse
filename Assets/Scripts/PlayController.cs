@@ -46,7 +46,7 @@ public class PlayController : MonoBehaviour {
         Reload(currentBullets);
         PlayAnimationOver(animator, animationState, animationName);
 
-        Debug.Log(lockedEmeny);
+        //Debug.Log(lockedEmeny);
     }
 
 
@@ -113,7 +113,7 @@ public class PlayController : MonoBehaviour {
         //设置枪状态
         switch (gunStateIndex)
         {
-            case 0:gun = null;Debug.Log("无枪械");break;
+            case 0:gun = null;break;//Debug.Log("无枪械");break;
             case 1:gun = GameSystem.Pistol.pistol; Debug.Log(gun.GunState);break;
             case 2:gun = GameSystem.Rifle.rifle; Debug.Log(gun.GunState);break;
         }

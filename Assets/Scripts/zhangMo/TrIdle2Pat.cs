@@ -24,6 +24,6 @@ public class TrIdle2Pat : FSMTransition {
 	public override void onTransition()
 	{
 		// 设置对应状态中数据
-		SetNextState(new FSMPatrol());
+		SetNextState(new FSMPatrol(activeState.getEnemyObject()));
 	}
 }
