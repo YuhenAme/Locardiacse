@@ -139,7 +139,54 @@ namespace GameSystemInstance
             //加载背包内的数据
             //根据Type的类型查询背包中道具的数量，如果为0则跳过改节点，Type++;
             //若查询到，格子[i]，子物体加上道具图片;i++;
-            
+            int i = 0;int j = 1;
+            while (i < GameSystem.BackpackSystem.tempBackpack.Length)
+            {
+                if(GameSystem.BackpackSystem.tempBackpack[i].propNumber != 0)
+                {
+                    //如果当前格子下没有子物体
+                    if(backpackUI.transform.GetChild(j).childCount == 0)
+                    {
+                        GameObject thePicture = Resources.Load<GameObject>(GameSystem.BackpackSystem.tempBackpack[i].propName + "Picture");
+                        GameObject picture = Instantiate(thePicture);
+                        picture.transform.SetParent(backpackUI.transform.GetChild(j));
+                        picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+                        
+                    }
+                    else
+                    {
+                        //先判断该物体是否存在，如果存在则跳过，如果不存在则找到一个空的格子，生成
+                        if (GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName+"Picture(Clone)") == null)
+                        {
+                            //找到为空的格子
+                            while (j < 25)
+                            {
+                                if (backpackUI.transform.GetChild(j).childCount == 0)
+                                    break;
+                                else
+                                    j++;
+                            }
+                            GameObject thePicture = Resources.Load<GameObject>(GameSystem.BackpackSystem.tempBackpack[i].propName + "Picture");
+                            GameObject picture = Instantiate(thePicture);
+                            picture.transform.SetParent(backpackUI.transform.GetChild(j));
+                            picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+                        }
+                        
+                    }
+                    i = i + 1;
+                    j = j + 1;
+                }
+                else
+                {
+                    if(GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName) != null)
+                    {
+                        GameObject destroy = GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName);
+                        Destroy(destroy);
+                    }
+                    i++;
+                }
+
+            }
 
         }
         public void ExitBackpackButton()

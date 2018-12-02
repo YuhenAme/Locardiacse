@@ -10,7 +10,8 @@ public class Test : MonoBehaviour {
         //测试xml
         GameSystem.BackpackSystem.CreateBackpack();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayController>();
-
+        GameSystem.BackpackSystem.InitTempBackpack();
+        GameSystem.BackpackSystem.LoadTempBackpack();
     }
 	
 	// Update is called once per frame
@@ -54,8 +55,17 @@ public class Test : MonoBehaviour {
         //    //    }
         //    //}
         //}
+        
+        //Debug.Log(GameSystem.BackpackSystem.tempBackpack[0].propNumber);
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    GameSystem.BackpackSystem.AddProp("PistolBullet02", 5);
+        //    GameSystem.BackpackSystem.RemoveProp("PistolBullet01", 2);
+        //    //Debug.Log(GameSystem.BackpackSystem.tempBackpack[1].propNumber);
+        //    GameSystem.BackpackSystem.SaveTempBackpack();
 
-
+        //}
+        
 
 
 

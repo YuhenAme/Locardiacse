@@ -18,7 +18,8 @@ namespace GameSystemInstance
             //测试xml
             GameSystem.BackpackSystem.CreateBackpack();
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayController>();
-
+            GameSystem.BackpackSystem.InitTempBackpack();
+            GameSystem.BackpackSystem.LoadTempBackpack();
         }
         //写流程控制-------------
 
