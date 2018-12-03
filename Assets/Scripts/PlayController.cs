@@ -230,8 +230,12 @@ public class PlayController : MonoBehaviour {
                     }
                     else
                     {
-                        GameSystem.BattleSystem.InstanceBullet(currentBullet.propName);
-                        //Debug.Log(currentBullet.propName);
+                        if(GameSystem.BackpackSystem.GetProp(currentBullet.propName) > 0)
+                        {
+                            GameSystem.BattleSystem.InstanceBullet(currentBullet.propName);
+                            //Debug.Log(currentBullet.propName);
+                            GameSystem.BackpackSystem.RemoveProp(currentBullet.propName, 1);
+                        }
                         bulletIndex += 1;
                     }
                 }

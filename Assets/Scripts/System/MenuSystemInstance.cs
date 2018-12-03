@@ -22,11 +22,9 @@ namespace GameSystemInstance
         public PistolBullet selectPistolBullet;
         //当前选中的弹夹
         public Prop[] selectPistolBullets;
+        //背包格子
+        public Prop[] backpackGrads = new Prop[25];
 
-        enum PropType
-        {
-            pistolBullet01,pistolBullet02,pistolBullet03
-        }
 
         private void Start()
         {
@@ -130,15 +128,14 @@ namespace GameSystemInstance
             }
 
         }
+        //--------------------------------------------
 
         //背包系统UI----------------------------------
         //呼出背包UI界面
         public void OnBackpackButtonDown()
         {
             backpackUI.SetActive(true);
-            //加载背包内的数据
-            //根据Type的类型查询背包中道具的数量，如果为0则跳过改节点，Type++;
-            //若查询到，格子[i]，子物体加上道具图片;i++;
+            //加载背包内的数据，显示到UI
             int i = 0;int j = 1;
             while (i < GameSystem.BackpackSystem.tempBackpack.Length)
             {
@@ -151,7 +148,8 @@ namespace GameSystemInstance
                         GameObject picture = Instantiate(thePicture);
                         picture.transform.SetParent(backpackUI.transform.GetChild(j));
                         picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-                        
+                        //当前的格子赋值
+                        backpackGrads[j - 1] = GameSystem.BackpackSystem.tempBackpack[i];
                     }
                     else
                     {
@@ -159,6 +157,7 @@ namespace GameSystemInstance
                         if (GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName+"Picture(Clone)") == null)
                         {
                             //找到为空的格子
+                            //边界为格子的数量
                             while (j < 25)
                             {
                                 if (backpackUI.transform.GetChild(j).childCount == 0)
@@ -170,6 +169,8 @@ namespace GameSystemInstance
                             GameObject picture = Instantiate(thePicture);
                             picture.transform.SetParent(backpackUI.transform.GetChild(j));
                             picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+                            //当前的格子赋值
+                            backpackGrads[j - 1] = GameSystem.BackpackSystem.tempBackpack[i];
                         }
                         
                     }
@@ -181,6 +182,9 @@ namespace GameSystemInstance
                     if(GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName) != null)
                     {
                         GameObject destroy = GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName);
+                        //获取该物体的父物体
+                        GameObject destroyParent = destroy.transform.parent.gameObject;
+                        backpackGrads[int.Parse(destroyParent.name) - 1] = null;
                         Destroy(destroy);
                     }
                     i++;
@@ -193,13 +197,26 @@ namespace GameSystemInstance
         {
             backpackUI.SetActive(false);
         }
-        //选中道具，显示出介绍
         public void SelectProp()
         {
-            var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-            //Prop selectProp;
-            //show(selectProp.propIntroduce);
+            GameObject propName = backpackUI.transform.GetChild(26).gameObject;
+            GameObject propNumber = backpackUI.transform.GetChild(27).gameObject;
+            GameObject propIntroduce = backpackUI.transform.GetChild(28).gameObject;
+            var button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+            if(backpackGrads[int.Parse(button.name)-1] != null)
+            {
+                propName.GetComponent<Text>().text ="道具名字: " + backpackGrads[int.Parse(button.name) - 1].propName;
+                propNumber.GetComponent<Text>().text = "道具数量: " + backpackGrads[int.Parse(button.name) - 1].propNumber;
+                propIntroduce.GetComponent<Text>().text ="道具介绍: " + backpackGrads[int.Parse(button.name) - 1].propIntroduce;
+            }
+            else
+            {
+                propName.GetComponent<Text>().text = "道具名字: " + "无";
+                propNumber.GetComponent<Text>().text = "道具数量: " + "无";
+                propIntroduce.GetComponent<Text>().text = "道具介绍: " + "无";
+            }
         }
+        //--------------------------------------------
     }
 }
 namespace GameSystem
