@@ -11,7 +11,7 @@ public class FSMDie : FSMstate {
 	private float speed;
 	public override void onEnter()
 	{
-		
+		Debug.Log("Enter Die state.");
 	}
 	public override void onUpdate()
 	{

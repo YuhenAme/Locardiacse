@@ -15,7 +15,7 @@ public class FSMAttack : FSMstate {
 	}
 	public override void onUpdate()
 	{
-		
+		// 检测玩家
 	}
 	public override void onExit()
 	{
