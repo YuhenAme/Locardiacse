@@ -7,7 +7,7 @@ public class FSMData : MonoBehaviour
 	//_______________实例__________________
 
 	public AudioClip audio;
-
+	public Animator animator;
 
 
 	//________________属性_________________
@@ -16,5 +16,6 @@ public class FSMData : MonoBehaviour
 	[Range(0,100)] public float life;
 	[Range(0,100)] public float damage;
 	[Range(0,10)] public float visualRange;
+
 
 }

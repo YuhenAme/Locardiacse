@@ -11,10 +11,12 @@ public class FiniteStateMachine : MonoBehaviour {
 
 	public GameObject enemyObject;
 	private Transform enemyTrans;
+	private FSMData data;
 	FSMstate initialState;
 	FSMstate activeState;
 	private void Awake() {
 		//enemyObject = this.gameObject.transform.parent.gameObject;
+		data = enemyObject.GetComponent<FSMData>();
 		initialState = new FSMIdle(enemyObject);
 	}
 	void Start()
@@ -25,6 +27,7 @@ public class FiniteStateMachine : MonoBehaviour {
 	}
 	private void Update()
 	{	
+		OnDrawGizmos();
 		//Debug.Log(activeState);
 		if(activeState.validTranstion!=null)
 		{
@@ -39,5 +42,43 @@ public class FiniteStateMachine : MonoBehaviour {
 		{
 			activeState.onUpdate();
 		}
+	}
+
+	private void OnDrawGizmos()
+	{
+		if(enemyTrans == null) return;
+
+		Matrix4x4 defaultMatrix = Gizmos.matrix;
+		Gizmos.matrix = enemyTrans.localToWorldMatrix;
+
+		Color defaultColor = Gizmos.color;	
+		Gizmos.color = Color.green;
+
+		Vector3 beginPoint = Vector3.zero;
+		Vector3 firstPoint = Vector3.zero;
+
+		for(float theta = 0;theta <Mathf.PI;theta += 0.0001f)
+		{
+			float x = data.visualRange * Mathf.Cos(theta);
+            float z = data.visualRange  * Mathf.Sin(theta);
+            Vector3 endPoint = new Vector3(x, 0, z);
+        	if (theta == 0)
+            {
+                firstPoint = endPoint;
+            }
+            else
+            {
+                Gizmos.DrawLine(beginPoint, endPoint);
+            }
+            beginPoint = endPoint;
+		}
+		// 绘制最后一条线段
+    	Gizmos.DrawLine(firstPoint, beginPoint);
+
+        // 恢复默认颜色
+        Gizmos.color = defaultColor;
+
+        // 恢复默认矩阵
+        Gizmos.matrix = defaultMatrix;
 	}
 }
