@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSMstate : MonoBehaviour
+public class FSMstate
 {
+	protected GameObject enemyObject;
+	protected Transform enemyTrans;
+	public FSMstate(GameObject thisGameObj)
+	{
+		enemyObject = thisGameObj;
+	}
 	/// <summary>
 	/// 进入某状态时的初始化工作
 	/// </summary>
@@ -25,6 +31,19 @@ public class FSMstate : MonoBehaviour
 	public List<FSMTransition> transitions = new List<FSMTransition>();
 	
 	public FSMTransition validTranstion;
+	public GameObject getEnemyObject()
+	{
+		return enemyObject;
+	}
+	/// <summary>
+	/// Sent when an incoming collider makes contact with this object's
+	/// collider (2D physics only).
+	/// </summary>
+	/// <param name="other">The Collision2D data associated with this collision.</param>
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		//用于受伤判定
+	}
 }
 
 public class FSMTransition
@@ -40,9 +59,13 @@ public class FSMTransition
 	public virtual bool isValid(){ return false; }
 	public FSMstate getNextState()
 	{
-		Debug.Log("To get next.");
+		//Debug.Log("To get next.");
 		if(activeState.validTranstion != null)
+		{
+			//Debug.Log("return the next state!");
 			return nextState;
+		}
+
 		return null;
 	}
 	public virtual void onTransition(){}

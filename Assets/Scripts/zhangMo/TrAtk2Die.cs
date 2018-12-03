@@ -7,4 +7,10 @@ using UnityEngine;
 
 public class TrAtk2Die : FSMTransition {
     public TrAtk2Die(FSMstate nowState) : base(nowState){ }
+    public override bool isValid()
+    {
+        // 应该是最高优先级的转换，当生命值为0时直接死亡。
+
+        return false;
+    }
 }

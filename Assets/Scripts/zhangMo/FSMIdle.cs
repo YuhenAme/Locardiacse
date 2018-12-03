@@ -6,7 +6,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FSMIdle : FSMstate {
-
+	public FSMIdle(GameObject thisGameObj):base(thisGameObj)
+	{
+		enemyObject = thisGameObj;
+	}
 	//public List<FSMTransition> transitions;
 	//public FSMTransition validTranstion;
 	public override void onEnter()
@@ -18,12 +21,12 @@ public class FSMIdle : FSMstate {
 	{
 		// 播放动画
 		// test
-		Debug.Log("Now is Idle State. ");
+		//Debug.Log("Now is Idle State. ");
 		foreach (var trans in transitions)
 		{
 			if(trans.isValid())
 			{
-				//validTranstion = trans;
+				validTranstion = trans;
 				//Debug.Log(trans.name);
 				break;
 			}

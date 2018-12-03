@@ -9,22 +9,30 @@ public class FiniteStateMachine : MonoBehaviour {
 
 	//List<FSMstate> states;
 
-	FSMstate initialState = new FSMIdle();
-
+	public GameObject enemyObject;
+	private Transform enemyTrans;
+	FSMstate initialState;
 	FSMstate activeState;
-	private void Start()
+	private void Awake() {
+		//enemyObject = this.gameObject.transform.parent.gameObject;
+		initialState = new FSMIdle(enemyObject);
+	}
+	void Start()
 	{
+		//Debug.Log(initialState);
 		activeState = initialState;
 		activeState.onEnter();
 	}
 	private void Update()
 	{	
-		//Debug.Log(activeState.validTranstion.name);
+		//Debug.Log(activeState);
 		if(activeState.validTranstion!=null)
 		{
 			FSMTransition validTranstion = activeState.validTranstion;
+			validTranstion.onTransition();
 			activeState.onExit();
 			activeState = activeState.validTranstion.getNextState();
+			Debug.Log(activeState);
 			activeState.onEnter();
 		}
 		else

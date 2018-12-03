@@ -7,4 +7,12 @@ using UnityEngine;
 
 public class TrAwa2Atk : FSMTransition {
     public TrAwa2Atk(FSMstate nowState) : base(nowState){ }
+
+
+    public override bool isValid()
+    {
+        // 当进入攻击范围内时，返回true
+
+        return false;
+    }
 }

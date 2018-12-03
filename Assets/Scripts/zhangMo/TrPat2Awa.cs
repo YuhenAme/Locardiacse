@@ -7,5 +7,9 @@ using UnityEngine;
 
 public class TrPat2Awa : FSMTransition {
     public TrPat2Awa(FSMstate nowState) : base(nowState){ }
-    
+    public override bool isValid()
+    {
+        // 当玩家进入视线范围时返回true，进入追逐
+        return false;
+    }
 }
