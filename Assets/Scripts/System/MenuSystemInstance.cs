@@ -18,6 +18,7 @@ namespace GameSystemInstance
         private GameObject mainUI;
         private GameObject bulletUI;
         private GameObject backpackUI;
+        private GameObject reminderText;
         //当前选中的子弹类型
         public PistolBullet selectPistolBullet;
         //当前选中的弹夹
@@ -31,6 +32,7 @@ namespace GameSystemInstance
             mainUI = GameObject.Find("MainUI");
             bulletUI = mainUI.transform.GetChild(1).gameObject;
             backpackUI = mainUI.transform.GetChild(3).gameObject;
+            reminderText = mainUI.transform.GetChild(5).gameObject;
             
         }
 
@@ -217,6 +219,29 @@ namespace GameSystemInstance
             }
         }
         //--------------------------------------------
+
+        
+        ///// <summary>
+        ///// 提示语
+        ///// </summary>
+        //public void ShowReminder(string word)
+        //{
+        //    StartCoroutine(_ShowReminder(word));
+            
+        //}
+        //IEnumerator _ShowReminder(string word)
+        //{
+        //    //yield return new WaitForSeconds(2.0f);
+        //    if(reminderText.activeSelf == false)
+        //    {
+        //        reminderText.SetActive(true);
+        //        reminderText.GetComponent<Text>().text = word;
+        //        yield return new WaitForSeconds(1.5f);
+        //    }
+            
+
+
+        //}
     }
 }
 namespace GameSystem

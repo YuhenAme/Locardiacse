@@ -13,6 +13,7 @@ namespace GameSystemInstance
     public class GameSystemInstance : MonoBehaviour
     {
         private PlayController player;
+        public static bool isRemind = true;
         void Start()
         {
             //测试xml
@@ -20,9 +21,15 @@ namespace GameSystemInstance
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayController>();
             GameSystem.BackpackSystem.InitTempBackpack();
             GameSystem.BackpackSystem.LoadTempBackpack();
+            //教程提示用图来表示吧
+
         }
         //写流程控制-------------
-
+        private void Update()
+        {
+            
+            
+        }
 
 
 

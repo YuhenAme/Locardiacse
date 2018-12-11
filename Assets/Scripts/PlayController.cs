@@ -7,19 +7,19 @@ using UnityEngine;
 /// </summary>
 public class PlayController : MonoBehaviour {
 
-    [SerializeField][Header("血量")]
-    private float hp = 100;
-    [SerializeField][Header("紧张值")][Range(0,100)]
-    private float nervous = 0;
-    [SerializeField][Header("当前持枪")]
-    private GameSystem.Gun gun;
+    [Header("血量")]
+    public float hp = 100;
+    [Header("紧张值")][Range(0,100)]
+    public float nervous = 0;
+    [Header("当前持枪")]
+    public GameSystem.Gun gun;
     [SerializeField][Header("移动速度")][Range(0.1f,10)]
     private float moveSpeed = 7;
 
     public GameObject lockedEmeny;
     public Prop[] currentBullets = new Prop[6];//当前弹夹
-    private Prop currentBullet;//当前子弹
-    private int bulletIndex = 0;//当前子弹索引
+    public Prop currentBullet;//当前子弹
+    public int bulletIndex = 0;//当前子弹索引
     private Animator animator;
 
     static string animationName;//动画名字
@@ -114,8 +114,8 @@ public class PlayController : MonoBehaviour {
         switch (gunStateIndex)
         {
             case 0:gun = null;break;//Debug.Log("无枪械");break;
-            case 1:gun = GameSystem.Pistol.pistol; Debug.Log(gun.GunState);break;
-            case 2:gun = GameSystem.Rifle.rifle; Debug.Log(gun.GunState);break;
+            case 1:gun = GameSystem.Pistol.pistol; Debug.Log("当前为手枪");break;
+            case 2:gun = GameSystem.Rifle.rifle; Debug.Log("当前为步枪");break;
         }
 
     }
@@ -133,10 +133,10 @@ public class PlayController : MonoBehaviour {
         {
             if (gun.GunState == 1)
             {
-                //if(currentBullets == null)
-                //{
-                //    Debug.Log("请给子弹上膛");
-                //}
+                if (currentBullets != null)
+                {
+                    Debug.Log(currentBullets.ToString());
+                }
                 //当持枪为手枪时
                 //currentBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;//默认弹夹为01
                 //按某个键切换弹夹，1为弹夹1，2为弹夹2，3为弹夹3

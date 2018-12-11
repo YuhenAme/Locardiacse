@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f25b3bc99084453bf98d75c854d9ca, type: 3}
+  m_Name: armatureName1_Pose
+  m_EditorClassIdentifier: 
+  boneDatas:
+  - x: 0
+    y: 0
+    rotation: 0
+    sx: 1
+    sy: 1
+  - x: 0.0133
+    y: 0.45939997
+    rotation: 0
+    sx: 1
+    sy: 1
+  - x: 0.077199996
+    y: -0.019299999
+    rotation: 296.02
+    sx: 1
+    sy: 1
+  - x: -0.1112
+    y: 0.0047999998
+    rotation: 246.21
+    sx: 1
+    sy: 1
+  - x: 0.25219998
+    y: -0.0015
+    rotation: 352.82
+    sx: 1
+    sy: 1
+  - x: 0.242
+    y: 0.0001
+    rotation: 5.84
+    sx: 1
+    sy: 1
+  slotDatas:
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    displayIndex: 0
+    zorder: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    displayIndex: 0
+    zorder: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    displayIndex: 0
+    zorder: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    displayIndex: 0
+    zorder: 0
+  displayDatas:
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    vertex: []
+    transform:
+      x: 0.074599996
+      y: 0.0174
+      rotation: 58.129997
+      sx: 1
+      sy: 1
+    type: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    vertex: []
+    transform:
+      x: 0.12319999
+      y: 0.0056
+      rotation: 63.980003
+      sx: 1
+      sy: 1
+    type: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    vertex: []
+    transform:
+      x: 0.086899996
+      y: -0.011
+      rotation: 120.98
+      sx: 1
+      sy: 1
+    type: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    vertex: []
+    transform:
+      x: 0.15089999
+      y: -0.0008
+      rotation: 113.78999
+      sx: 1
+      sy: 1
+    type: 0

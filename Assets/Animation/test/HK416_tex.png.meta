@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: a2ceaddedcd988840bbe1ad81971cdcc
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: armL1
+    21300002: gln
+    21300004: hairT
+    21300006: eyeL1
+    21300008: eyeL2
+    21300010: eyeL3
+    21300012: eyeL4
+    21300014: eyeL5
+    21300016: bagR
+    21300018: armR3
+    21300020: armR1
+    21300022: armR2
+    21300024: gun
+    21300026: face
+    21300028: bag
+    21300030: armL2
+    21300032: tie
+    21300034: hairTL
+    21300036: hairTR
+    21300038: shadow
+    21300040: mouth1
+    21300042: mouth2
+    21300044: mouth3
+    21300046: eyeR1
+    21300048: eyeR2
+    21300050: eyeR3
+    21300052: eyeR4
+    21300054: eyeR5
+    21300056: bagL
+    21300058: ammo
+    21300060: armL3
+    21300062: legR1
+    21300064: legR2
+    21300066: legL1
+    21300068: legL2
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: legR1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 316
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51add3c6ce7bc4f4ba3a503bdd0eaf09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legR2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 328
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504bf1cab99354e459375494c5f26ee0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legL1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 294
+        width: 24
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.515625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95efdb518c1e674aa88843b34769358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legL2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 283
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60deb2d89247ade4a916db7a8835e854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0ce273c2f3deabe408629ad22695786a
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
