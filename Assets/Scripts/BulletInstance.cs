@@ -6,7 +6,7 @@ using UnityEngine;
 /// 子弹实例
 /// </summary>
 public class BulletInstance : MonoBehaviour {
-    [Header("子弹速度")][Range(0,5.0f)][SerializeField]
+    [Header("子弹速度")][Range(0,10.0f)][SerializeField]
     private float shootSpeed = 2.0f;
     
     private GameObject lockEmeny;
@@ -32,6 +32,7 @@ public class BulletInstance : MonoBehaviour {
         {
             gameObject.transform.parent = GameSystem.BattleSystem.bulletInstances.transform;
             //GameSystem.BattleSystem.bulletInstanceList.Add(gameObject);
+            CameraShake.Shake(0.2f,0.1f);
             gameObject.SetActive(false);
         }
     }

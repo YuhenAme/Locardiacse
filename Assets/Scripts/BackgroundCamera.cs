@@ -11,6 +11,6 @@ public class BackgroundCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, -9.4f);
+        transform.position = new Vector3(mainCamera.transform.position.x, 2.78f, -9.4f);
 	}
 }
