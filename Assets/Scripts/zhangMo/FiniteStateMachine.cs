@@ -14,6 +14,7 @@ public class FiniteStateMachine : MonoBehaviour {
 	private FSMData data;
 	FSMstate initialState;
 	FSMstate activeState;
+	public string activeStateName;
 	private void Awake() {
 		//enemyObject = this.gameObject.transform.parent.gameObject;
 		data = enemyObject.GetComponent<FSMData>();
@@ -27,6 +28,7 @@ public class FiniteStateMachine : MonoBehaviour {
 	}
 	private void Update()
 	{	
+		activeStateName = activeState.ToString();
 		OnDrawGizmos();
 		//Debug.Log(activeState);
 		if(activeState.validTranstion!=null)
@@ -35,7 +37,7 @@ public class FiniteStateMachine : MonoBehaviour {
 			validTranstion.onTransition();
 			activeState.onExit();
 			activeState = activeState.validTranstion.getNextState();
-			Debug.Log(activeState);
+			//Debug.Log(activeState);
 			activeState.onEnter();
 		}
 		else
@@ -59,8 +61,8 @@ public class FiniteStateMachine : MonoBehaviour {
 
 		for(float theta = 0;theta <Mathf.PI;theta += 0.0001f)
 		{
-			float x = data.visualRange * Mathf.Cos(theta);
-            float z = data.visualRange  * Mathf.Sin(theta);
+			float x = data.getVisualRange() * Mathf.Cos(theta);
+            float z = data.getVisualRange()  * Mathf.Sin(theta);
             Vector3 endPoint = new Vector3(x, 0, z);
         	if (theta == 0)
             {
