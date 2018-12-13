@@ -96,6 +96,9 @@ public class FSMstate
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(enemyTrans.position, data.visualRange);
     } */
+
+	public virtual void Move() {}
+	public virtual void Move(Vector3 targetPos) {}
 }
 
 public class FSMTransition
