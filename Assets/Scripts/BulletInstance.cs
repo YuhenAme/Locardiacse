@@ -10,7 +10,7 @@ public class BulletInstance : MonoBehaviour {
     private float shootSpeed = 2.0f;
     
     private GameObject lockEmeny;
-   
+    
     private GameObject player;
     public Vector3 moveDir;
     // Update is called once per frame
@@ -32,8 +32,13 @@ public class BulletInstance : MonoBehaviour {
         {
             gameObject.transform.parent = GameSystem.BattleSystem.bulletInstances.transform;
             //GameSystem.BattleSystem.bulletInstanceList.Add(gameObject);
-            CameraShake.Shake(0.2f,0.1f);
+            GameObject clone = Resources.Load<GameObject>("boom");
+            GameObject boomClone = Instantiate(clone, transform.position, transform.rotation);
+            Destroy(boomClone, 0.5f);
+            //CameraShake.Shake(0.2f,0.1f);
+            CameraShake.TheCameraShake.Shake(0.2f, 0.1f);
             gameObject.SetActive(false);
+
         }
     }
 }

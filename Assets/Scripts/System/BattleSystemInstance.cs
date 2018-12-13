@@ -175,13 +175,15 @@ namespace GameSystem
                         clone.transform.parent = null;//脱离父物体
                         clone.transform.position = Setting.firePosition.position;//设置位置
                         clone.GetComponent<BulletInstance>().moveDir = new Vector3(player.transform.localScale.x, 0, 0);
+                        clone.transform.localScale = new Vector3(player.transform.localScale.x * clone.transform.localScale.x, clone.transform.localScale.y, 0);
                         return;
                     }
                 }
                 //若没有查询到则实例化子弹
                 clone = Resources.Load<GameObject>(tag);
                 clone.GetComponent<BulletInstance>().moveDir = new Vector3(player.transform.localScale.x, 0, 0);
-                GameObject.Instantiate(clone, Setting.firePosition.position, Setting.firePosition.rotation);
+                GameObject clonePrefab = GameObject.Instantiate(clone, Setting.firePosition.position, Setting.firePosition.rotation);
+                clonePrefab.transform.localScale = new Vector3(-player.transform.localScale.x * clonePrefab.transform.localScale.x, clonePrefab.transform.localScale.y, 0);
                 clone.tag = tag;
             }
             else
@@ -189,7 +191,9 @@ namespace GameSystem
                 //若没有查询到则实例化子弹
                 clone = Resources.Load<GameObject>(tag);
                 clone.GetComponent<BulletInstance>().moveDir = new Vector3(player.transform.localScale.x, 0, 0);
-                GameObject.Instantiate(clone, Setting.firePosition.position,Setting.firePosition.rotation);
+                //clone.transform.localScale = new Vector3(player.transform.localScale.x * clone.transform.localScale.x, clone.transform.localScale.y, 0);
+                GameObject clonePrefab= GameObject.Instantiate(clone, Setting.firePosition.position,Setting.firePosition.rotation);
+                clonePrefab.transform.localScale = new Vector3(-player.transform.localScale.x * clonePrefab.transform.localScale.x, clonePrefab.transform.localScale.y, 0);
                 clone.tag = tag;
                 
             }
