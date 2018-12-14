@@ -43,9 +43,32 @@ public class FiniteStateMachine : MonoBehaviour {
 		else
 		{
 			activeState.onUpdate();
+			activeState.DrawFieldOfView();
+			//activeState.Look();
 		}
 	}
 
+	/// <summary>
+	/// Sent when an incoming collider makes contact with this object's
+	/// collider (2D physics only).
+	/// </summary>
+	/// <param name="other">The Collision2D data associated with this collision.</param>
+	void OnCollisionEnter2D(Collision2D other)
+	{// hard to test this func because some reasons.
+		if(other.transform.tag == "bullet")
+		{
+			switch(other.gameObject.GetComponent<BulletInstance>().GetType().Name)
+			{
+				case "test1": break;// Do Test1
+				case "test2": break;// Do Test2
+				case "test3": break;// Do test3
+			}
+		}
+		if(other.transform.tag == "Player")
+		{
+			// Maybe it will hurt the player
+		}
+	}
 	private void OnDrawGizmos()
 	{
 		if(enemyTrans == null) return;

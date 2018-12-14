@@ -24,6 +24,7 @@ public class FSMstate
 	public virtual void onUpdate()
 	{
 		//OnDrawGizmos();
+		//Look();
 	}
 	
 	/// <summary>
@@ -35,68 +36,58 @@ public class FSMstate
 	/// 状态转换间的连接
 	/// </summary>
 	public List<FSMTransition> transitions = new List<FSMTransition>();
-	
+
+	/* public bool Look()
+	{
+		Debug.Log("search");
+		var thisData = data;
+		if(LookAround(enemyTrans,Quaternion.identity,Color.green,data))
+		{
+			return true;
+		}
+		float subAngle = (data.getLookAngle() / 2) / data.lookAccurate;
+		for (int i = 0; i < data.lookAccurate; i++)
+        {
+            if (LookAround(enemyTrans, Quaternion.Euler(0, -1 * subAngle * (i + 1), 0), Color.green,data) 
+                || LookAround(enemyTrans, Quaternion.Euler(0, subAngle * (i + 1), 0), Color.green,data))
+                return true;
+        }
+		return false;
+	}
+
+	static public bool LookAround(Transform enemyTrans,Quaternion eulerAnger,Color DebugColor,FSMData data)
+	{
+		Debug.DrawRay(enemyTrans.position,eulerAnger * enemyTrans.forward.normalized * data.getVisualRange(), DebugColor); 
+		RaycastHit hit;
+		if(Physics.Raycast(enemyTrans.position, eulerAnger * enemyTrans.forward, out hit, data.getVisualRange()) && hit.collider.CompareTag("Player"))
+		{
+            data.chaseTarget = hit.transform;
+            return true;
+		}
+		return false;
+	} */
+
+	public void DrawFieldOfView()
+	{
+		// 获得最左边那条射线的向量，相对正前方，角度是-45
+        Vector3 forward_left = Quaternion.Euler(0, 0, -data.getLookAngle()) * -new Vector3(enemyTrans.localScale.x/Mathf.Abs(enemyTrans.localScale.x),0,0) * data.getVisualRange();
+		for(int i = 0;i <= data.lookAccurate;i++)
+		{
+			 // 每条射线都在forward_left的基础上偏转一点，最后一个正好偏转90度到视线最右侧
+            Vector3 v = Quaternion.Euler(0, 0, (90.0f/data.lookAccurate) * i) * forward_left;
+            // Player位置加v，就是射线终点pos
+            Vector3 pos = enemyTrans.position + v;
+            // 从玩家位置到pos画线段，只会在编辑器里看到
+            Debug.DrawLine(enemyTrans.position, pos, Color.red);
+		}
+	}
 	public FSMTransition validTranstion;
 	public GameObject getEnemyObject()
 	{
 		return enemyObject;
 	}
-	/// <summary>
-	/// Sent when an incoming collider makes contact with this object's
-	/// collider (2D physics only).
-	/// </summary>
-	/// <param name="other">The Collision2D data associated with this collision.</param>
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		//用于受伤判定
-	}
 
-	/* private void OnDrawGizmos()
-	{
-		if(enemyTrans == null) return;
-
-		Matrix4x4 defaultMatrix = Gizmos.matrix;
-		Gizmos.matrix = enemyTrans.localToWorldMatrix;
-
-		Color defaultColor = Gizmos.color;	
-		Gizmos.color = Color.green;
-
-		Vector3 beginPoint = Vector3.zero;
-		Vector3 firstPoint = Vector3.zero;
-
-		for(float theta = 0;theta <Mathf.PI;theta += 0.0001f)
-		{
-			float x = data.visualRange * Mathf.Cos(theta);
-            float z =data.visualRange  * Mathf.Sin(theta);
-            Vector3 endPoint = new Vector3(x, 0, z);
-        	if (theta == 0)
-            {
-                firstPoint = endPoint;
-            }
-            else
-            {
-                Gizmos.DrawLine(beginPoint, endPoint);
-            }
-            beginPoint = endPoint;
-		}
-		// 绘制最后一条线段
-    	Gizmos.DrawLine(firstPoint, beginPoint);
-
-        // 恢复默认颜色
-        Gizmos.color = defaultColor;
-
-        // 恢复默认矩阵
-        Gizmos.matrix = defaultMatrix;
-
-	}*/
-
-	/*void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(enemyTrans.position, data.visualRange);
-    } */
-
+	
 	public virtual void Move() {}
 	public virtual void Move(Vector3 targetPos) {}
 }

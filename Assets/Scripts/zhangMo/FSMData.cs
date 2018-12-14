@@ -8,20 +8,18 @@ public class FSMData : MonoBehaviour
 
 	public AudioClip[] audio;
 	public Animator animator;
-
+	public Transform chaseTarget;
 
 	//________________属性_________________
 
-	[SerializeField]
-	[Range(0,10)] private float speed;
-	[SerializeField]
-	[Range(0,100)] private float life;
-	[SerializeField]
-	[Range(0,100)] private float damage;
-	[SerializeField]
-	[Range(0,10)] private float visualRange;
-	[SerializeField]
-	[Range(0,10)] private float patrolRange;
+	[SerializeField] [Range(0,10)] private float speed;
+	[SerializeField] [Range(0,100)] private float life;
+	[SerializeField] [Range(0,100)] private float damage;
+	[SerializeField] [Range(0,10)] private int visualRange;
+	[SerializeField] [Range(0,10)] private float patrolRange;
+	[SerializeField] [Range(0,10)] private float findPlayerByRadio;
+	[SerializeField] [Range(0,120)] private float lookAngle;
+	public float lookAccurate = 30;
 
 	//________________状态_________________
 	public bool isFacingLeft;
@@ -66,12 +64,12 @@ public class FSMData : MonoBehaviour
 		return damage;
 	}
 
-	public void setVisualRange(float input)
+	public void setVisualRange(int input)
 	{
 		visualRange = input;
 	}
 
-	public float getVisualRange()
+	public int getVisualRange()
 	{
 		return visualRange;
 	}
@@ -85,4 +83,23 @@ public class FSMData : MonoBehaviour
 		return patrolRange;
 	}
 
+	public void setFindPlayerByRadio(float input)
+	{
+		findPlayerByRadio = input;
+	}
+
+	public float getFindPlayerByRadio()
+	{
+		return findPlayerByRadio;
+	}
+
+	public void setLookAngle(float input)
+	{
+		lookAngle = input;
+	}
+
+	public float getLookAngle()
+	{
+		return lookAngle;
+	}
 }

@@ -21,6 +21,7 @@ public class FSMPatrol : FSMstate {
 		isfacingLeft = data.isFacingLeft;
 		patrolRange = data.getPatrolRange();
 		targetPos = new Vector3(enemyTrans.position.x - patrolRange,enemyTrans.position.y,enemyTrans.position.z);
+		
 	}
 	public override void onUpdate()
 	{
@@ -62,6 +63,11 @@ public class FSMPatrol : FSMstate {
 		enemyTrans.localScale = scale;
 	}
 
+	/* IEnumerator FindPlayer()
+	{
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		yield return null;
+	} */
 	public bool RandomCreator()
 	{
 		System.Random rd = new System.Random();
