@@ -55,7 +55,7 @@ public class Test : MonoBehaviour {
         //    //    }
         //    //}
         //}
-        
+
         //Debug.Log(GameSystem.BackpackSystem.tempBackpack[0].propNumber);
         //if (Input.GetMouseButtonDown(0))
         //{
@@ -66,8 +66,6 @@ public class Test : MonoBehaviour {
 
         //}
         
-
-
 
     }
 }
