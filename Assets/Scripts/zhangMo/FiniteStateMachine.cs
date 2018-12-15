@@ -25,26 +25,23 @@ public class FiniteStateMachine : MonoBehaviour {
 		//Debug.Log(initialState);
 		activeState = initialState;
 		activeState.onEnter();
+		StartCoroutine("FindPlayerByRadio");
 	}
 	private void Update()
 	{	
 		activeStateName = activeState.ToString();
-		OnDrawGizmos();
-		//Debug.Log(activeState);
 		if(activeState.validTranstion!=null)
 		{
 			FSMTransition validTranstion = activeState.validTranstion;
 			validTranstion.onTransition();
 			activeState.onExit();
 			activeState = activeState.validTranstion.getNextState();
-			//Debug.Log(activeState);
 			activeState.onEnter();
 		}
 		else
 		{
 			activeState.onUpdate();
 			activeState.DrawFieldOfView();
-			//activeState.Look();
 		}
 	}
 
@@ -69,41 +66,15 @@ public class FiniteStateMachine : MonoBehaviour {
 			// Maybe it will hurt the player
 		}
 	}
-	private void OnDrawGizmos()
+
+	IEnumerator FindPlayerByRadio()
 	{
-		if(enemyTrans == null) return;
-
-		Matrix4x4 defaultMatrix = Gizmos.matrix;
-		Gizmos.matrix = enemyTrans.localToWorldMatrix;
-
-		Color defaultColor = Gizmos.color;	
-		Gizmos.color = Color.green;
-
-		Vector3 beginPoint = Vector3.zero;
-		Vector3 firstPoint = Vector3.zero;
-
-		for(float theta = 0;theta <Mathf.PI;theta += 0.0001f)
+		while(true)
 		{
-			float x = data.getVisualRange() * Mathf.Cos(theta);
-            float z = data.getVisualRange()  * Mathf.Sin(theta);
-            Vector3 endPoint = new Vector3(x, 0, z);
-        	if (theta == 0)
-            {
-                firstPoint = endPoint;
-            }
-            else
-            {
-                Gizmos.DrawLine(beginPoint, endPoint);
-            }
-            beginPoint = endPoint;
+			Debug.Log("Radio to find the pos of player");
+			yield return new WaitForSeconds(data.getRadioColdDown());
 		}
-		// 绘制最后一条线段
-    	Gizmos.DrawLine(firstPoint, beginPoint);
-
-        // 恢复默认颜色
-        Gizmos.color = defaultColor;
-
-        // 恢复默认矩阵
-        Gizmos.matrix = defaultMatrix;
+		yield return null;
 	}
+
 }

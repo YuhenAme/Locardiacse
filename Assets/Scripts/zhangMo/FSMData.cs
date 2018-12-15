@@ -17,10 +17,9 @@ public class FSMData : MonoBehaviour
 	[SerializeField] [Range(0,100)] private float damage;
 	[SerializeField] [Range(0,10)] private int visualRange;
 	[SerializeField] [Range(0,10)] private float patrolRange;
-	[SerializeField] [Range(0,10)] private float findPlayerByRadio;
 	[SerializeField] [Range(0,120)] private float lookAngle;
 	public float lookAccurate = 30;
-
+	[SerializeField] [Range(0,360)] private float radioColdDown;
 	//________________状态_________________
 	public bool isFacingLeft;
 
@@ -83,14 +82,14 @@ public class FSMData : MonoBehaviour
 		return patrolRange;
 	}
 
-	public void setFindPlayerByRadio(float input)
+	public void setRadioColdDown(float input)
 	{
-		findPlayerByRadio = input;
+		radioColdDown = input;
 	}
 
-	public float getFindPlayerByRadio()
+	public float getRadioColdDown()
 	{
-		return findPlayerByRadio;
+		return radioColdDown;
 	}
 
 	public void setLookAngle(float input)
@@ -102,4 +101,6 @@ public class FSMData : MonoBehaviour
 	{
 		return lookAngle;
 	}
+
+
 }
