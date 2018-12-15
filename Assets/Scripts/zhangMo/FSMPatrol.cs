@@ -21,16 +21,27 @@ public class FSMPatrol : FSMstate {
 		isfacingLeft = data.isFacingLeft;
 		patrolRange = data.getPatrolRange();
 		targetPos = new Vector3(enemyTrans.position.x - patrolRange,enemyTrans.position.y,enemyTrans.position.z);
-		
+		transitions.Add(new TrAny2Die(this));
+		transitions.Add(new TrAny2Awa(this));
 	}
 	public override void onUpdate()
 	{
 		//enemyTrans.Translate(Vector3.left*Time.deltaTime*speed);
 		Move();
+		foreach (var trans in transitions)
+		{
+			if(trans.isValid())
+			{
+				validTranstion = trans;
+				//Debug.Log(trans.name);
+				break;
+			}
+		}
 	}
 	public override void onExit()
 	{
 		//Debug.Log("Exit Patrol state");
+		transitions.Clear();
 	}
 
 	public override void Move()

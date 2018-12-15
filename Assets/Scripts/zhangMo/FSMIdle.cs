@@ -15,6 +15,8 @@ public class FSMIdle : FSMstate {
 	public override void onEnter()
 	{
 		transitions.Add(new TrIdle2Pat(this));
+		transitions.Add(new TrAny2Die(this));
+		transitions.Add(new TrAny2Awa(this));
 		//Debug.Log("Enter Idle state.");
 		//Debug.Log(data.speed);
 	}

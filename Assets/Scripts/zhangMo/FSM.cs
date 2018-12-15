@@ -69,15 +69,7 @@ public class FSMstate
 			}
 		}
 	}
-	IEnumerator FindPlayerByRadio()
-	{
-		while(true)
-		{
-			Debug.Log("Radio to find the pos of player");
-			yield return new WaitForSeconds(data.getRadioColdDown());
-		}
-		yield return null;
-	}
+
 	public FSMTransition validTranstion;
 	public GameObject getEnemyObject()
 	{
@@ -85,6 +77,10 @@ public class FSMstate
 	}
 	public virtual void Move() {}
 	public virtual void Move(Vector3 targetPos) {}
+	public FSMData GetData()
+	{
+		return data;
+	}
 }
 
 public class FSMTransition

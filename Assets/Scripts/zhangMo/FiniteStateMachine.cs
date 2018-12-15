@@ -69,10 +69,20 @@ public class FiniteStateMachine : MonoBehaviour {
 
 	IEnumerator FindPlayerByRadio()
 	{
+		int index = 0;
 		while(true)
 		{
-			Debug.Log("Radio to find the pos of player");
-			yield return new WaitForSeconds(data.getRadioColdDown());
+			if(index == 0)
+			{
+				index++;
+				yield return new WaitForSeconds(data.getRadioColdDown());
+			}
+			else
+			{
+				Debug.Log("Radio to find the pos of player");
+				data.chaseTarget = data.player.transform;
+				yield return new WaitForSeconds(data.getRadioColdDown());
+			}
 		}
 		yield return null;
 	}

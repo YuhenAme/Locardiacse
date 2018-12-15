@@ -9,6 +9,7 @@ public class FSMData : MonoBehaviour
 	public AudioClip[] audio;
 	public Animator animator;
 	public Transform chaseTarget;
+	public GameObject player;
 
 	//________________属性_________________
 
@@ -22,6 +23,15 @@ public class FSMData : MonoBehaviour
 	[SerializeField] [Range(0,360)] private float radioColdDown;
 	//________________状态_________________
 	public bool isFacingLeft;
+
+	//________________初始化________________
+	/// <summary>
+	/// Awake is called when the script instance is being loaded.
+	/// </summary>
+	void Awake()
+	{
+		player = GameObject.FindGameObjectWithTag("Player");
+	}
 
 	public void setAnimator(Animator input)
 	{

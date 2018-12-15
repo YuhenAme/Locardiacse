@@ -5,13 +5,20 @@ using UnityEngine;
 public class TrAny2Awa : FSMTransition {
 
 	public TrAny2Awa(FSMstate nowState):base(nowState){ }
-	// Use this for initialization
-	void Start () {
-		
+
+	public override bool isValid()
+	{
+		if(activeState.GetData().chaseTarget != null)
+		{
+			Debug.Log("go to aware");
+			return true;
+		}
+		return false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void onTransition()
+	{
+		FSMAware newState = new FSMAware(activeState.getEnemyObject());
+		SetNextState(newState);
 	}
 }
