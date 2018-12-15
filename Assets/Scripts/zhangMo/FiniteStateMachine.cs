@@ -42,6 +42,7 @@ public class FiniteStateMachine : MonoBehaviour {
 		{
 			activeState.onUpdate();
 			activeState.DrawFieldOfView();
+			activeState.CheckLife();
 		}
 	}
 
@@ -86,5 +87,4 @@ public class FiniteStateMachine : MonoBehaviour {
 		}
 		yield return null;
 	}
-
 }

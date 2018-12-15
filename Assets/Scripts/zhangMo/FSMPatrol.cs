@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 public class FSMPatrol : FSMstate {
-	public bool isfacingLeft;
+	//public bool isfacingLeft;
 	private float patrolRange;
 	private bool isArriveTarget = false;
 	Vector3 targetPos;
@@ -18,7 +18,7 @@ public class FSMPatrol : FSMstate {
 		//Debug.Log("Enter Patrol state.");
 		enemyTrans = enemyObject.transform;
 		data = enemyObject.GetComponent<FSMData>();
-		isfacingLeft = data.isFacingLeft;
+		//isfacingLeft = data.isFacingLeft;
 		patrolRange = data.getPatrolRange();
 		targetPos = new Vector3(enemyTrans.position.x - patrolRange,enemyTrans.position.y,enemyTrans.position.z);
 		transitions.Add(new TrAny2Die(this));

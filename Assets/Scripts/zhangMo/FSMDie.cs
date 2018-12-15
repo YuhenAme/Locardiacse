@@ -15,7 +15,8 @@ public class FSMDie : FSMstate {
 	}
 	public override void onUpdate()
 	{
-		
+		//TODO 播放死亡动画，然后Destory()
+		GameObject.Destroy(enemyObject);
 	}
 	public override void onExit()
 	{

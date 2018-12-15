@@ -21,11 +21,7 @@ public class FSMstate
 	/// <summary>
 	/// 在某状态中反复执行的工作，等同于Update
 	/// </summary>
-	public virtual void onUpdate()
-	{
-		//OnDrawGizmos();
-		//Look();
-	}
+	public virtual void onUpdate(){}
 	
 	/// <summary>
 	/// 退出状态时执行的工作
@@ -70,6 +66,13 @@ public class FSMstate
 		}
 	}
 
+	public void CheckLife()
+	{
+		if(data.getLife()<=0)
+		{
+			data.isDead = true;
+		}
+	}
 	public FSMTransition validTranstion;
 	public GameObject getEnemyObject()
 	{

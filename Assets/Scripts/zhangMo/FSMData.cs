@@ -22,8 +22,8 @@ public class FSMData : MonoBehaviour
 	public float lookAccurate = 30;
 	[SerializeField] [Range(0,360)] private float radioColdDown;
 	//________________状态_________________
-	public bool isFacingLeft;
-
+	//public bool isFacingLeft;
+	public bool isDead = false;
 	//________________初始化________________
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
