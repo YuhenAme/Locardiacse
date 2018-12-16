@@ -12,7 +12,16 @@ public class TrAwa2Atk : FSMTransition {
     public override bool isValid()
     {
         // 当进入攻击范围内时，返回true
-
+        if(Vector3.Distance(data.transform.position,data.player.transform.position)<data.getAttackRange())
+        {
+            return true;
+        }
         return false;
     }
+
+    public override void onTransition()
+	{
+		FSMAttack newState = new FSMAttack(activeState.getEnemyObject());
+		SetNextState(newState);
+	}
 }

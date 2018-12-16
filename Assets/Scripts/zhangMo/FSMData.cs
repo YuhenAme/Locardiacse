@@ -19,7 +19,8 @@ public class FSMData : MonoBehaviour
 	[SerializeField] [Range(0,10)] private int visualRange;
 	[SerializeField] [Range(0,10)] private float patrolRange;
 	[SerializeField] [Range(0,120)] private float lookAngle;
-	public float lookAccurate = 30;
+	[SerializeField] [Range(0,10)] private float attackRange;
+	[Range(0,180)] public float lookAccurate = 30;
 	[SerializeField] [Range(0,360)] private float radioColdDown;
 	//________________状态_________________
 	//public bool isFacingLeft;
@@ -31,6 +32,14 @@ public class FSMData : MonoBehaviour
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+	}
+
+	/// <summary>
+	/// Update is called every frame, if the MonoBehaviour is enabled.
+	/// </summary>
+	void Update()
+	{
+		//Debug.Log("Player pos:"+player.transform.position);
 	}
 
 	public void setAnimator(Animator input)
@@ -112,5 +121,13 @@ public class FSMData : MonoBehaviour
 		return lookAngle;
 	}
 
+	public void setAttackRange(float input)
+	{
+		attackRange = input;
+	}
 
+	public float getAttackRange()
+	{
+		return attackRange;
+	}
 }

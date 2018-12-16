@@ -22,4 +22,8 @@ public class FSMAttack : FSMstate {
 
 	}
 
+	void Attack()
+	{
+		
+	}
 }

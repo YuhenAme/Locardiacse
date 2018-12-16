@@ -61,7 +61,8 @@ public class FSMstate
 
 			if(hit2d.transform!=null && hit2d.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
-				Debug.Log("Hit the player");
+				// 存疑
+				data.chaseTarget = data.player.transform;
 			}
 		}
 	}
@@ -91,11 +92,13 @@ public class FSMTransition
 	public FSMTransition(FSMstate nowState)
 	{
 		activeState = nowState;
+		data = activeState.GetData();
 	}
 	// 当前状态
 	protected FSMstate activeState;
 	// 目标状态
 	public FSMstate nextState;
+	public FSMData data;
 	public virtual bool isValid(){ return false; }
 	public FSMstate getNextState()
 	{
