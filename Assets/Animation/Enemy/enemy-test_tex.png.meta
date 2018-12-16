@@ -1,0 +1,718 @@
+fileFormatVersion: 2
+guid: 1b1651719935ee74a9732321ff4c087c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Rhand1
+    21300002: Rleg1
+    21300004: Lhand1
+    21300006: hand-L3
+    21300008: Lleg2
+    21300010: mouth1
+    21300012: mouth2
+    21300014: mouth3
+    21300016: Hair
+    21300018: clasp
+    21300020: gun
+    21300022: Lleg1
+    21300024: L-eye-2
+    21300026: Leye1
+    21300028: Leye2
+    21300030: Leye3
+    21300032: eyeL5
+    21300034: face
+    21300036: Lhand3
+    21300038: Lhand2
+    21300040: shadow
+    21300042: gun
+    21300044: Rhand3
+    21300046: R-eye-2
+    21300048: Reye1
+    21300050: Reye2
+    21300052: Reye3
+    21300054: eyeR5
+    21300056: Rhand2
+    21300058: Rleg2
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rhand1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 250
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.5294118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7db156529b770240a770076df1d4a50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rleg1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 269
+        width: 24
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.51666665}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e500d8145b8e3f9489025f238177d87f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lhand1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 210
+        width: 21
+        height: 18
+      alignment: 9
+      pivot: {x: 0.52380955, y: 0.5277778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb6efdabf2a28a4a9b2e33e545b3d6f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand-L3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 191
+        width: 16
+        height: 19
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07430260febf924592a827bbcf3df27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lleg2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 279
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5185185, y: 0.5147059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa12d266314f9564d98087e708390ebe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 248
+        width: 4
+        height: 7
+      alignment: 9
+      pivot: {x: 0.625, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c560e7c8111124284f364422909859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 247
+        width: 9
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.5625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38dbb7972838a4141b55f46aa6d5ea12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 411
+        width: 10
+        height: 3
+      alignment: 9
+      pivot: {x: 0.55, y: 0.6666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b677862a691e5f0488ab0210c3d23eb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hair
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 365
+        width: 75
+        height: 49
+      alignment: 9
+      pivot: {x: 0.50666666, y: 0.5102041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d215a95b53b905438be23c61a669195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clasp
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 378
+        width: 69
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5072464, y: 0.51785713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a330916d1da42945be212c99e1ef38f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 408
+        width: 122
+        height: 35
+      alignment: 9
+      pivot: {x: 0.50409836, y: 0.51428574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823ba08bad93998468a25448163ce8df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lleg1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 246
+        width: 24
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5208333, y: 0.516129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b5cfbe58294e3542a43e4b60156ec70
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: L-eye-2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 258
+        width: 16
+        height: 28
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.51785713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711cc2ea0e075fa47b729a40131854be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leye1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 212
+        width: 17
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5294118, y: 0.515625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd11803ce37e6754f8516ebe4b16d25f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leye2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 255
+        width: 16
+        height: 31
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.516129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d04fcd0fe5caaa7468b10215b767e786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leye3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 227
+        width: 15
+        height: 26
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.5192308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad02aa33b26dfa343b4a57f8d0435ae7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeL5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 231
+        width: 15
+        height: 27
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.5185185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db4e5577e3e1394bb56559a158166f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 445
+        width: 66
+        height: 66
+      alignment: 9
+      pivot: {x: 0.50757575, y: 0.50757575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d229cbfe43e47e40869fe62f68714da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lhand3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 260
+        width: 19
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5263158, y: 0.5192308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f94665d9d078974a8a736f10e20d1a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lhand2
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 252
+        width: 23
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5217391, y: 0.5217391}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce57d4487f10c0642a36f05811856ba5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadow
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 288
+        width: 58
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5086207, y: 0.53846157}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924ccc950b6d79d4ca9c3d94775fa911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 408
+        width: 122
+        height: 35
+      alignment: 9
+      pivot: {x: 0.50409836, y: 0.51428574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d9c6326f824ea45a412c7ecc533602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rhand3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 305
+        width: 25
+        height: 19
+      alignment: 9
+      pivot: {x: 0.52, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d349e24276d55b2428bbc1167fd8f75a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R-eye-2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 230
+        width: 23
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5217391, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b79f23bd40afe6438de63a9e6b7fbc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reye1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 292
+        width: 25
+        height: 32
+      alignment: 9
+      pivot: {x: 0.52, y: 0.515625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493d138d8d97c404488a059e599a939e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reye2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 303
+        width: 26
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5192308, y: 0.5151515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35082eefc176d64da882b3093e4436e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reye3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 215
+        width: 21
+        height: 29
+      alignment: 9
+      pivot: {x: 0.52380955, y: 0.51724136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe3121a51d2c5d418753c79e9232f3e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyeR5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 261
+        width: 25
+        height: 27
+      alignment: 9
+      pivot: {x: 0.52, y: 0.5185185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abd345505144b4d4cbb0d799d2cade66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rhand2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 189
+        width: 18
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5277778, y: 0.5263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62df79c875dacb24e80c17f4a2b1e899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rleg2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 301
+        width: 26
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5192308, y: 0.5151515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497b17c90da60764fa748a77993d9f52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 33dd4d62521df8945a50410c9e64d16f
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

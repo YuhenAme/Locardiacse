@@ -30,7 +30,7 @@ public class CameraShake : MonoBehaviour {
 
     private void LateUpdate()
     {
-        Debug.Log(cameraPos);
+
         if (startShake)
         {
             transform.localPosition = cameraPos + Random.insideUnitSphere * quake;

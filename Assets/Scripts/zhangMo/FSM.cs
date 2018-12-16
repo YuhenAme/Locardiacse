@@ -39,7 +39,7 @@ public class FSMstate
 	public void DrawFieldOfView()
 	{
 		// 获得最左边那条射线的向量，相对正前方，角度是-45
-        Vector3 forward_left = Quaternion.Euler(0, 0, -data.getLookAngle()) * -new Vector3(enemyTrans.localScale.x/Mathf.Abs(enemyTrans.localScale.x),0,0) * data.getVisualRange();
+        Vector3 forward_left = Quaternion.Euler(0, 0, -data.getLookAngle()) * new Vector3(enemyTrans.localScale.x/Mathf.Abs(enemyTrans.localScale.x),0,0) * data.getVisualRange();
 		for(int i = 0;i <= data.lookAccurate;i++)
 		{
 			// 每条射线都在forward_left的基础上偏转一点，最后一个正好偏转90度到视线最右侧

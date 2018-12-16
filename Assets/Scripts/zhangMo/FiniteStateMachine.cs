@@ -51,24 +51,47 @@ public class FiniteStateMachine : MonoBehaviour {
 	/// collider (2D physics only).
 	/// </summary>
 	/// <param name="other">The Collision2D data associated with this collision.</param>
-	void OnCollisionEnter2D(Collision2D other)
+	/*void OnCollisionEnter2D(Collision2D other)
 	{// hard to test this func because some reasons.
-		if(other.transform.tag == "bullet")
+		if(other.transform.tag == "PistolBullet01")
 		{
-			switch(other.gameObject.GetComponent<BulletInstance>().GetType().Name)
+			switch(other.gameObject.GetComponent<BulletInstance>().tag)
 			{
-				case "test1": break;// Do Test1
-				case "test2": break;// Do Test2
-				case "test3": break;// Do test3
+                //具体数值待定
+				case "PistolBullet01":activeState.GetData().setLife(activeState.GetData().getLife() - 30); break;// Do Test1
+				case "PistolBullet02":  break;// Do Test2
+				case "PistolBullet03": break;// Do test3
 			}
 		}
 		if(other.transform.tag == "Player")
 		{
 			// Maybe it will hurt the player
 		}
-	}
+        //还有当与阴影相碰撞的时候,主角直接死亡
 
-	IEnumerator FindPlayerByRadio()
+	}*/
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "PistolBullet01")
+        {
+            switch (collision.gameObject.GetComponent<BulletInstance>().tag)
+            {
+                //具体数值待定
+                case "PistolBullet01": activeState.GetData().setLife(activeState.GetData().getLife() - 30); break;// Do Test1
+                case "PistolBullet02": break;// Do Test2
+                case "PistolBullet03": break;// Do test3
+            }
+        }
+        if (collision.transform.tag == "Player")
+        {
+            // Maybe it will hurt the player
+        }
+        //还有当与阴影相碰撞的时候,主角直接死亡
+
+    }
+
+
+    IEnumerator FindPlayerByRadio()
 	{
 		int index = 0;
 		while(true)

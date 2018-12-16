@@ -22,7 +22,8 @@ public class FSMIdle : FSMstate {
 	}
 	public override void onUpdate()
 	{
-		// 播放动画
+        // 播放动画
+        enemyObject.GetComponent<Animator>().SetBool("isMove", true);
 		// test
 		//Debug.Log("Now is Idle State. ");
 		foreach (var trans in transitions)

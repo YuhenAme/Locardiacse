@@ -130,4 +130,15 @@ public class FSMData : MonoBehaviour
 	{
 		return attackRange;
 	}
+    //public float AttackRange
+    //{
+    //    set
+    //    {
+    //        attackRange = value;
+    //    }
+    //    get
+    //    {
+    //        return attackRange;
+    //    }
+    //}
 }
