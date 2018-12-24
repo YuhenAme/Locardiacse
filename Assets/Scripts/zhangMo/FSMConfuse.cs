@@ -34,7 +34,7 @@ public class FSMConfuse : FSMstate {
 
 	public override void onExit()
 	{
-
+		transitions.Clear();
 	}
 
 	public void waitForSeconds(float target)

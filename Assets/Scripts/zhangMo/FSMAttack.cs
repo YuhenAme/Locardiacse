@@ -19,7 +19,7 @@ public class FSMAttack : FSMstate {
 	}
 	public override void onExit()
 	{
-
+		transitions.Clear();
 	}
 
 	void Attack()

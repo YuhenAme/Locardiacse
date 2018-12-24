@@ -14,9 +14,11 @@ public class TrCon2Pat : FSMTransition {
 		}
 		return false;
 	}
+
 	public override void onTransition()
 	{
-		FSMConfuse newState = new FSMConfuse(activeState.getEnemyObject());
+		FSMPatrol newState = new FSMPatrol(activeState.getEnemyObject());
 		SetNextState(newState);
 	}
+
 }

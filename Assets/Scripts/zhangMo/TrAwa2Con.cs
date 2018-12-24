@@ -8,11 +8,12 @@ public class TrAwa2Con : FSMTransition {
 
 	public override bool isValid()
 	{
-		if(data.chaseTarget == null) return true;
+		if(data.isTimeToQuitAware) return true;
 		return false;
 	}
 	public override void onTransition()
 	{
+		data.isTimeToQuitAware = false;
 		FSMConfuse newState = new FSMConfuse(activeState.getEnemyObject());
 		SetNextState(newState);
 	}

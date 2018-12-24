@@ -9,6 +9,8 @@ public class FSMAware : FSMstate {
 	}
 	[SerializeField]
 	private float speed;
+	private Vector3 position;
+	private float timer = 0.0f;
 	public override void onEnter()
 	{
 		transitions.Add(new TrAny2Die(this));
@@ -33,7 +35,15 @@ public class FSMAware : FSMstate {
 		}
 		if(data.chaseTarget!= null)
 		{
+			position = data.chaseTarget.position;
 			Move(data.chaseTarget.position);
+		}
+		else
+		{
+			timer += Time.deltaTime;
+			if(timer > data.getPatientTime())
+				data.isTimeToQuitAware = true;
+			Move(position);
 		}
 	}
 
@@ -52,7 +62,7 @@ public class FSMAware : FSMstate {
     }
 	public override void onExit()
 	{
-
+		transitions.Clear();
 	}
 
 	public void setSpeed()
