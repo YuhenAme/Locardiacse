@@ -21,6 +21,6 @@ public class FSMDie : FSMstate {
 	}
 	public override void onExit()
 	{
-
+		transitions.Clear();
 	}
 }
