@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrAny2Awa : FSMTransition {
+public class TrCon2Pat : FSMTransition {
 
-	public TrAny2Awa(FSMstate nowState):base(nowState){ }
+	public TrCon2Pat(FSMstate nowState):base(nowState){ }
 
 	public override bool isValid()
 	{
-		if(data.chaseTarget != null)
+		if(data.isConfusedOver)
 		{
-			//Debug.Log("go to aware");
 			return true;
 		}
 		return false;
 	}
-
 	public override void onTransition()
 	{
-		FSMAware newState = new FSMAware(activeState.getEnemyObject());
+		FSMConfuse newState = new FSMConfuse(activeState.getEnemyObject());
 		SetNextState(newState);
 	}
 }

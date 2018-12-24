@@ -46,6 +46,7 @@ public class FiniteStateMachine : MonoBehaviour {
 		}
 	}
 
+
 	/// <summary>
 	/// Sent when an incoming collider makes contact with this object's
 	/// collider (2D physics only).

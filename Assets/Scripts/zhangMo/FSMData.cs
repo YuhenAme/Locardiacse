@@ -25,6 +25,7 @@ public class FSMData : MonoBehaviour
 	//________________状态_________________
 	//public bool isFacingLeft;
 	public bool isDead = false;
+	public bool isConfusedOver = false;
 	//________________初始化________________
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
