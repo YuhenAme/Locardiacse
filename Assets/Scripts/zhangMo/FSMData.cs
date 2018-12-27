@@ -22,9 +22,12 @@ public class FSMData : MonoBehaviour
 	[SerializeField] [Range(0,10)] private float attackRange;
 	[Range(0,180)] public float lookAccurate = 30;
 	[SerializeField] [Range(0,360)] private float radioColdDown;
+	[SerializeField] [Range(0,5)] private float patientTime;
 	//________________状态_________________
 	//public bool isFacingLeft;
+	public bool isTimeToQuitAware = false;
 	public bool isDead = false;
+	public bool isConfusedOver = false;
 	//________________初始化________________
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
@@ -129,6 +132,14 @@ public class FSMData : MonoBehaviour
 	public float getAttackRange()
 	{
 		return attackRange;
+	}
+	public float getPatientTime()
+	{
+		return patientTime;
+	}
+	public void setPatientTime(float input)
+	{
+		patientTime = input;
 	}
     //public float AttackRange
     //{

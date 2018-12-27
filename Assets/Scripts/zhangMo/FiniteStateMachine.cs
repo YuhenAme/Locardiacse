@@ -13,7 +13,7 @@ public class FiniteStateMachine : MonoBehaviour {
 	private Transform enemyTrans;
 	private FSMData data;
 	FSMstate initialState;
-	FSMstate activeState;
+	public FSMstate activeState;
 	public string activeStateName;
 	private void Awake() {
 		//enemyObject = this.gameObject.transform.parent.gameObject;
@@ -46,6 +46,7 @@ public class FiniteStateMachine : MonoBehaviour {
 		}
 	}
 
+
 	/// <summary>
 	/// Sent when an incoming collider makes contact with this object's
 	/// collider (2D physics only).
@@ -77,7 +78,8 @@ public class FiniteStateMachine : MonoBehaviour {
             switch (collision.gameObject.GetComponent<BulletInstance>().tag)
             {
                 //具体数值待定
-                case "PistolBullet01": activeState.GetData().setLife(activeState.GetData().getLife() - 30); break;// Do Test1
+                //伤害在子弹中实现，因为有忽略碰撞这种设定
+                case "PistolBullet01": /*activeState.GetData().setLife(activeState.GetData().getLife() - 30)*/; break;// Do Test1
                 case "PistolBullet02": break;// Do Test2
                 case "PistolBullet03": break;// Do test3
             }

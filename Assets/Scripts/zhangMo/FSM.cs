@@ -48,7 +48,8 @@ public class FSMstate
 			// 创建射线
 			RaycastHit2D hit2d = new RaycastHit2D();
 			// 确定可以射到的层级
-			int mask = LayerMask.GetMask("Obstacle","Player");
+			//int mask = LayerMask.GetMask("Obstacle","Player");
+			int mask = LayerMask.GetMask("Player");
 			hit2d = Physics2D.Raycast(enemyTrans.position,v,data.getVisualRange(),mask);
             // Player位置加v，就是射线终点pos
             Vector3 pos = enemyTrans.position + v;
@@ -61,12 +62,25 @@ public class FSMstate
 
 			if(hit2d.transform!=null && hit2d.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
+				Debug.Log(hit2d.transform);
+				Debug.Log(hit2d.transform.gameObject.layer);
 				// 存疑
 				data.chaseTarget = data.player.transform;
 			}
+			/* else
+			{
+				data.chaseTarget = null;
+			} */
+			if(data.chaseTarget != null)
+			{
+				if(Vector3.Distance(data.chaseTarget.transform.position,this.enemyTrans.position)>4.0f)
+				{
+					data.chaseTarget = null;
+				}
+			}
+
 		}
 	}
-
 	public void CheckLife()
 	{
 		if(data.getLife()<=0)

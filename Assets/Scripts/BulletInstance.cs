@@ -32,6 +32,8 @@ public class BulletInstance : MonoBehaviour {
         {
             gameObject.transform.parent = GameSystem.BattleSystem.bulletInstances.transform;
             //GameSystem.BattleSystem.bulletInstanceList.Add(gameObject);
+            collision.gameObject.GetComponent<FiniteStateMachine>().activeState.GetData().setLife(collision.gameObject.GetComponent<FiniteStateMachine>().activeState.GetData().getLife() - 30);
+
             GameObject clone = Resources.Load<GameObject>("boom");
             GameObject boomClone = Instantiate(clone, transform.position, transform.rotation);
             Destroy(boomClone, 0.5f);

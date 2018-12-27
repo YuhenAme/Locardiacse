@@ -11,15 +11,24 @@ public class FSMAttack : FSMstate {
 	private float speed;
 	public override void onEnter()
 	{
-		
+        transitions.Add(new TrAny2Die(this));
 	}
 	public override void onUpdate()
 	{
-		// 检测玩家
-	}
+        // 检测玩家
+        foreach (var trans in transitions)
+        {
+            if (trans.isValid())
+            {
+                validTranstion = trans;
+                //Debug.Log(trans.name);
+                break;
+            }
+        }
+    }
 	public override void onExit()
 	{
-
+		transitions.Clear();
 	}
 
 	void Attack()

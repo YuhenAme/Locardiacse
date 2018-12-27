@@ -17,10 +17,10 @@ public class FSMDie : FSMstate {
 	{
         //TODO 播放死亡动画，然后Destory()
         enemyObject.GetComponent<Animator>().SetBool("isDie", true);
-		GameObject.Destroy(enemyObject,0.6f);
+		GameObject.Destroy(enemyObject,1.2f);
 	}
 	public override void onExit()
 	{
-
+		transitions.Clear();
 	}
 }
