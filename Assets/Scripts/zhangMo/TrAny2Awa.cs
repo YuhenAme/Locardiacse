@@ -8,7 +8,7 @@ public class TrAny2Awa : FSMTransition {
 
 	public override bool isValid()
 	{
-		if(data.chaseTarget != null)
+		if(data.chaseTarget != null || data.isTimeToEnterAware)
 		{
 			//Debug.Log("go to aware");
 			return true;
@@ -20,5 +20,6 @@ public class TrAny2Awa : FSMTransition {
 	{
 		FSMAware newState = new FSMAware(activeState.getEnemyObject());
 		SetNextState(newState);
+		data.isTimeToEnterAware = false;
 	}
 }

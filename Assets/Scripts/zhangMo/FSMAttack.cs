@@ -12,6 +12,7 @@ public class FSMAttack : FSMstate {
 	public override void onEnter()
 	{
         transitions.Add(new TrAny2Die(this));
+		transitions.Add(new TrAny2Awa(this));
 	}
 	public override void onUpdate()
 	{
@@ -25,14 +26,36 @@ public class FSMAttack : FSMstate {
                 break;
             }
         }
+		attackTypeJudger();
     }
 	public override void onExit()
 	{
 		transitions.Clear();
 	}
 
-	void Attack()
+	public void nearAttack()
 	{
-		
+		Debug.Log("近战攻击");
+		// TODO 播放攻击动画
+		data.isTimeToEnterAware = true;
+	}
+
+	public void remoteAttack()
+	{
+		Debug.Log("远程攻击");
+		// TODO 播放攻击动画
+		data.isTimeToEnterAware = true;
+	}
+
+	public void attackTypeJudger()
+	{
+		if(Vector3.Distance(enemyTrans.position,data.player.transform.position)<data.getAttackRange())
+		{
+			nearAttack();
+		}
+		else
+		{
+			remoteAttack();
+		}
 	}
 }

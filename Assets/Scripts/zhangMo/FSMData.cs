@@ -28,6 +28,7 @@ public class FSMData : MonoBehaviour
 	public bool isTimeToQuitAware = false;
 	public bool isDead = false;
 	public bool isConfusedOver = false;
+	public bool isTimeToEnterAware = false;
 	//________________初始化________________
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
