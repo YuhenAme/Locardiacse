@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletUI : BaseUI {
 
@@ -13,35 +14,64 @@ public class BulletUI : BaseUI {
     public RifleBullet selectRifleBullet;
     int index;
 
+    //new------------
+    private Button btn_exit;
+    private Button btn_reset;
+    private Button btn_confirm;
+    private Button btn_pistol;
+    private Button btn_rifle;
+    private Button btn_bullet1;
+    private Button btn_bullet2;
+    private Button btn_bullet3;
+    private Button btn_chain1;
+    private Button btn_chain2;
+    private Button btn_chain3;
+
     private void Start()
     {
-        //bulletButton = GameObject.Find("MainUI").transform.GetChild(0).gameObject;
-        //bulletUI = GameObject.Find("MainUI").transform.GetChild(1).gameObject;
+        btn_exit = GameSystem.MenuSystem.FindChildByName(gameObject, "ExitButton").GetComponent<Button>();
+        btn_reset = GameSystem.MenuSystem.FindChildByName(gameObject, "ResetButton").GetComponent<Button>();
+        btn_confirm = GameSystem.MenuSystem.FindChildByName(gameObject, "ConfirmButton").GetComponent<Button>();
+        btn_pistol = GameSystem.MenuSystem.FindChildByName(gameObject, "PistolButton").GetComponent<Button>();
+        btn_rifle  = GameSystem.MenuSystem.FindChildByName(gameObject, "RifleButton").GetComponent<Button>();
+        btn_bullet1 = GameSystem.MenuSystem.FindChildByName(gameObject, "1").GetComponent<Button>();
+        btn_bullet2 = GameSystem.MenuSystem.FindChildByName(gameObject, "2").GetComponent<Button>();
+        btn_bullet3 = GameSystem.MenuSystem.FindChildByName(gameObject, "3").GetComponent<Button>();
+        btn_chain1  = GameSystem.MenuSystem.FindChildByName(gameObject, "PistolBullets1").GetComponent<Button>();
+        btn_chain2 = GameSystem.MenuSystem.FindChildByName(gameObject, "PistolBullets2").GetComponent<Button>();
+        btn_chain3 = GameSystem.MenuSystem.FindChildByName(gameObject, "PistolBullets3").GetComponent<Button>();
         //selectPistolBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;
+        btn_exit.onClick.AddListener(Exit);
+        btn_reset.onClick.AddListener(ResetButtonDown);
+        btn_confirm.onClick.AddListener(ConfirmButtonDown);
+        btn_pistol.onClick.AddListener(PistolButtonDown);
+        btn_rifle.onClick.AddListener(RifleButtonDown);
+        btn_bullet1.onClick.AddListener(PistolBulletConfigure);
+        btn_bullet2.onClick.AddListener(PistolBulletConfigure);
+        btn_bullet3.onClick.AddListener(PistolBulletConfigure);
+        btn_chain1.onClick.AddListener(PistolBulletConfigure);
+        btn_chain2.onClick.AddListener(PistolBulletConfigure);
+        btn_chain3.onClick.AddListener(PistolBulletConfigure);
     }
 
-    public void BulletButtonDown()
+    private void Exit()
     {
-        bulletUI.SetActive(true);
-    }
-	public void ExitButtonDown()
-    {
-        bulletUI.SetActive(false);
+        gameObject.GetComponent<BulletUI>().CloseUI();
     }
 
     //选择设置手枪弹夹
     public void PistolButtonDown()
     {
-        GameObject pistolConfigure = bulletUI.transform.GetChild(4).gameObject;
-        GameObject rifleConfigure = bulletUI.transform.GetChild(6).gameObject;
+        GameObject pistolConfigure = gameObject.transform.GetChild(4).gameObject;
+        GameObject rifleConfigure = gameObject.transform.GetChild(6).gameObject;
         pistolConfigure.SetActive(true);
         rifleConfigure.SetActive(false);
     }
     //选择设置步枪弹夹
     public void RifleButtonDown()
     {
-        GameObject pistolConfigure = bulletUI.transform.GetChild(4).gameObject;
-        GameObject rifleConfigure = bulletUI.transform.GetChild(6).gameObject;
+        GameObject pistolConfigure = gameObject.transform.GetChild(4).gameObject;
+        GameObject rifleConfigure = gameObject.transform.GetChild(6).gameObject;
         pistolConfigure.SetActive(false);
         rifleConfigure.SetActive(true);
     }
@@ -49,9 +79,9 @@ public class BulletUI : BaseUI {
     public void PistolBulletConfigure()
     {
         //找到弹链
-        GameObject bulletChain1 = bulletUI.transform.GetChild(4).GetChild(1).GetChild(1).gameObject;
-        GameObject bulletChain2 = bulletUI.transform.GetChild(4).GetChild(2).GetChild(1).gameObject;
-        GameObject bulletChain3 = bulletUI.transform.GetChild(4).GetChild(3).GetChild(1).gameObject;
+        GameObject bulletChain1 = gameObject.transform.GetChild(4).GetChild(1).GetChild(1).gameObject;
+        GameObject bulletChain2 = gameObject.transform.GetChild(4).GetChild(2).GetChild(1).gameObject;
+        GameObject bulletChain3 = gameObject.transform.GetChild(4).GetChild(3).GetChild(1).gameObject;
 
         //根据点击的弹夹按钮显示对应的弹链
         var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;

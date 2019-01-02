@@ -185,7 +185,9 @@ namespace GameSystem
         public static GameObject FindChildByName(GameObject parent, string childName)
         {
             if (parent.name == childName)
+            {
                 return parent;
+            }   
             if (parent.transform.childCount < 1)
                 return null;
             GameObject obj = null;
@@ -198,6 +200,7 @@ namespace GameSystem
                 {
                     break;
                 }
+              
             }
             return obj;
         }

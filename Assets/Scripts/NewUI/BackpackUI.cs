@@ -11,10 +11,8 @@ public class BackpackUI : BaseUI {
         btn_exit.onClick.AddListener(Exit);
     }
     private void Exit()
-    {
-        
+    { 
         gameObject.GetComponent<BackpackUI>().CloseUI();
-        
     }
     
 }
