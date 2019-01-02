@@ -12,236 +12,118 @@ namespace GameSystemInstance
         [System.Serializable]
         public class Setting
         {
+            //主UI
+            public Transform NormalUI;
+            
+            public Transform KeepAboveUI;
+
+            public  Dictionary<UIType, BaseUI> NormalUIDic = new Dictionary<UIType, BaseUI>();
+            public  BaseUI CurrentUI;
 
         }
         public Setting setting;
-        private GameObject mainUI;
-        private GameObject bulletUI;
-        private GameObject backpackUI;
-        private GameObject reminderText;
-        //当前选中的子弹类型
-        public PistolBullet selectPistolBullet;
-        //当前选中的弹夹
-        public Prop[] selectPistolBullets;
-        //背包格子
-        public Prop[] backpackGrads = new Prop[25];
-
+        
 
         private void Start()
         {
-            mainUI = GameObject.Find("MainUI");
-            bulletUI = mainUI.transform.GetChild(1).gameObject;
-            backpackUI = mainUI.transform.GetChild(3).gameObject;
-            reminderText = mainUI.transform.GetChild(5).gameObject;
+            
             
         }
 
 
-        //子弹系统UI----------------------------------
-        //呼出子弹UI界面
-        public void OnBulletButtonDown()
-        {
-            bulletUI.SetActive(true);
-        }
-        public void ExitBulletButton()
-        {//关闭UI界面
-            bulletUI.SetActive(false);
-        }
-        public void SelectBullets()
-        {//选择设置弹夹
-            var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-            string s = buttton.name;
-            GameObject PistolButton = bulletUI.transform.GetChild(0).gameObject;
-            GameObject RifleButton = bulletUI.transform.GetChild(1).gameObject;
-            GameObject PistolBullet01 = PistolButton.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject;
-            GameObject PistolBullet02 = PistolButton.transform.GetChild(2).gameObject.transform.GetChild(1).gameObject;
-            GameObject PistolBullet03 = PistolButton.transform.GetChild(3).gameObject.transform.GetChild(1).gameObject;
-            GameObject RifleBullet01 = RifleButton.transform.GetChild(1).gameObject.transform.GetChild(1).gameObject;
-            GameObject RifleBullet02 = RifleButton.transform.GetChild(2).gameObject.transform.GetChild(1).gameObject;
-            GameObject RifleBullet03 = RifleButton.transform.GetChild(3).gameObject.transform.GetChild(1).gameObject;
-            //Debug.Log(s);
-            switch (s)
-            {
-                case "PistolBullets01":
-                    PistolBullet01.SetActive(true);
-                    PistolBullet02.SetActive(false);
-                    PistolBullet03.SetActive(false);
-                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;
-                    break;
-                case "PistolBullets02":
-                    PistolBullet01.SetActive(false);
-                    PistolBullet02.SetActive(true);
-                    PistolBullet03.SetActive(false);
-                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets02;
-                    break;
-                case "PistolBullets03":
-                    PistolBullet01.SetActive(false);
-                    PistolBullet02.SetActive(false);
-                    PistolBullet03.SetActive(true);
-                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets03;
-                    break;
-                case "RifleBullets01":
-                    RifleBullet01.SetActive(true);
-                    RifleBullet02.SetActive(false);
-                    RifleBullet03.SetActive(false);
-                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets01;
-                    break;
-                case "RifleBullets02":
-                    RifleBullet01.SetActive(false);
-                    RifleBullet02.SetActive(true);
-                    RifleBullet03.SetActive(false);
-                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets02;
-                    break;
-                case "RifleBullets03":
-                    RifleBullet01.SetActive(false);
-                    RifleBullet02.SetActive(false);
-                    RifleBullet03.SetActive(true);
-                    selectPistolBullets = GameSystem.BulletSystem.Instance.setting.rifleBullets03;
-                    break;
-                    
-            }
-        }
-        public void SeleteBulletType()
-        {//选择子弹类型，暂时只有手枪子弹，步枪子弹类型等图片出来再加上去
-            var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-            string s = buttton.name;
-            switch (s)
-            {
-                case "1":selectPistolBullet = PistolBullet.PistolBullet01.pistolBullet01;
-                    break;
-                case "2":selectPistolBullet = PistolBullet.PistolBullet02.pistolBullet02;
-                    break;
-                case "3":selectPistolBullet = PistolBullet.PistolBullet03.pistolBullet03;
-                    break;
-            }
-        }
-        public void SetPistolBullet()
-        {//给弹夹设置子弹
-            var buttton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-            string s = buttton.name;
-            switch (s)
-            {
-                case "1": GameSystem.BulletSystem.SetBullet(0, selectPistolBullet, selectPistolBullets); break;
-                case "2": GameSystem.BulletSystem.SetBullet(1, selectPistolBullet, selectPistolBullets); break;
-                case "3": GameSystem.BulletSystem.SetBullet(2, selectPistolBullet, selectPistolBullets); break;
-                case "4": GameSystem.BulletSystem.SetBullet(3, selectPistolBullet, selectPistolBullets); break;
-                case "5": GameSystem.BulletSystem.SetBullet(4, selectPistolBullet, selectPistolBullets); break;
-                case "6": GameSystem.BulletSystem.SetBullet(5, selectPistolBullet, selectPistolBullets); break;
-            }
-
-        }
+        
         //--------------------------------------------
 
         //背包系统UI----------------------------------
         //呼出背包UI界面
-        public void OnBackpackButtonDown()
-        {
-            backpackUI.SetActive(true);
-            //加载背包内的数据，显示到UI
-            int i = 0;int j = 1;
-            while (i < GameSystem.BackpackSystem.tempBackpack.Length)
-            {
-                if(GameSystem.BackpackSystem.tempBackpack[i].propNumber != 0)
-                {
-                    //如果当前格子下没有子物体
-                    if(backpackUI.transform.GetChild(j).childCount == 0)
-                    {
-                        GameObject thePicture = Resources.Load<GameObject>(GameSystem.BackpackSystem.tempBackpack[i].propName + "Picture");
-                        GameObject picture = Instantiate(thePicture);
-                        picture.transform.SetParent(backpackUI.transform.GetChild(j));
-                        picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-                        //当前的格子赋值
-                        backpackGrads[j - 1] = GameSystem.BackpackSystem.tempBackpack[i];
-                    }
-                    else
-                    {
-                        //先判断该物体是否存在，如果存在则跳过，如果不存在则找到一个空的格子，生成
-                        if (GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName+"Picture(Clone)") == null)
-                        {
-                            //找到为空的格子
-                            //边界为格子的数量
-                            while (j < 25)
-                            {
-                                if (backpackUI.transform.GetChild(j).childCount == 0)
-                                    break;
-                                else
-                                    j++;
-                            }
-                            GameObject thePicture = Resources.Load<GameObject>(GameSystem.BackpackSystem.tempBackpack[i].propName + "Picture");
-                            GameObject picture = Instantiate(thePicture);
-                            picture.transform.SetParent(backpackUI.transform.GetChild(j));
-                            picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-                            //当前的格子赋值
-                            backpackGrads[j - 1] = GameSystem.BackpackSystem.tempBackpack[i];
-                        }
+        //public void OnBackpackButtonDown()
+        //{
+        //    backpackUI.SetActive(true);
+        //    //加载背包内的数据，显示到UI
+        //    int i = 0;int j = 1;
+        //    while (i < GameSystem.BackpackSystem.tempBackpack.Length)
+        //    {
+        //        if(GameSystem.BackpackSystem.tempBackpack[i].propNumber != 0)
+        //        {
+        //            //如果当前格子下没有子物体
+        //            if(backpackUI.transform.GetChild(j).childCount == 0)
+        //            {
+        //                GameObject thePicture = Resources.Load<GameObject>(GameSystem.BackpackSystem.tempBackpack[i].propName + "Picture");
+        //                GameObject picture = Instantiate(thePicture);
+        //                picture.transform.SetParent(backpackUI.transform.GetChild(j));
+        //                picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        //                //当前的格子赋值
+        //                backpackGrads[j - 1] = GameSystem.BackpackSystem.tempBackpack[i];
+        //            }
+        //            else
+        //            {
+        //                //先判断该物体是否存在，如果存在则跳过，如果不存在则找到一个空的格子，生成
+        //                if (GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName+"Picture(Clone)") == null)
+        //                {
+        //                    //找到为空的格子
+        //                    //边界为格子的数量
+        //                    while (j < 25)
+        //                    {
+        //                        if (backpackUI.transform.GetChild(j).childCount == 0)
+        //                            break;
+        //                        else
+        //                            j++;
+        //                    }
+        //                    GameObject thePicture = Resources.Load<GameObject>(GameSystem.BackpackSystem.tempBackpack[i].propName + "Picture");
+        //                    GameObject picture = Instantiate(thePicture);
+        //                    picture.transform.SetParent(backpackUI.transform.GetChild(j));
+        //                    picture.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        //                    //当前的格子赋值
+        //                    backpackGrads[j - 1] = GameSystem.BackpackSystem.tempBackpack[i];
+        //                }
                         
-                    }
-                    i = i + 1;
-                    j = j + 1;
-                }
-                else
-                {
-                    if(GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName) != null)
-                    {
-                        GameObject destroy = GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName);
-                        //获取该物体的父物体
-                        GameObject destroyParent = destroy.transform.parent.gameObject;
-                        backpackGrads[int.Parse(destroyParent.name) - 1] = null;
-                        Destroy(destroy);
-                    }
-                    i++;
-                }
+        //            }
+        //            i = i + 1;
+        //            j = j + 1;
+        //        }
+        //        else
+        //        {
+        //            if(GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName) != null)
+        //            {
+        //                GameObject destroy = GameObject.Find(GameSystem.BackpackSystem.tempBackpack[i].propName);
+        //                //获取该物体的父物体
+        //                GameObject destroyParent = destroy.transform.parent.gameObject;
+        //                backpackGrads[int.Parse(destroyParent.name) - 1] = null;
+        //                Destroy(destroy);
+        //            }
+        //            i++;
+        //        }
 
-            }
+        //    }
 
-        }
-        public void ExitBackpackButton()
-        {
-            backpackUI.SetActive(false);
-        }
-        public void SelectProp()
-        {
-            GameObject propName = backpackUI.transform.GetChild(26).gameObject;
-            GameObject propNumber = backpackUI.transform.GetChild(27).gameObject;
-            GameObject propIntroduce = backpackUI.transform.GetChild(28).gameObject;
-            var button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-            if(backpackGrads[int.Parse(button.name)-1] != null)
-            {
-                propName.GetComponent<Text>().text ="道具名字: " + backpackGrads[int.Parse(button.name) - 1].propName;
-                propNumber.GetComponent<Text>().text = "道具数量: " + backpackGrads[int.Parse(button.name) - 1].propNumber;
-                propIntroduce.GetComponent<Text>().text ="道具介绍: " + backpackGrads[int.Parse(button.name) - 1].propIntroduce;
-            }
-            else
-            {
-                propName.GetComponent<Text>().text = "道具名字: " + "无";
-                propNumber.GetComponent<Text>().text = "道具数量: " + "无";
-                propIntroduce.GetComponent<Text>().text = "道具介绍: " + "无";
-            }
-        }
+        //}
+        //public void ExitBackpackButton()
+        //{
+        //    backpackUI.SetActive(false);
+        //}
+        //public void SelectProp()
+        //{
+        //    GameObject propName = backpackUI.transform.GetChild(26).gameObject;
+        //    GameObject propNumber = backpackUI.transform.GetChild(27).gameObject;
+        //    GameObject propIntroduce = backpackUI.transform.GetChild(28).gameObject;
+        //    var button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+        //    if(backpackGrads[int.Parse(button.name)-1] != null)
+        //    {
+        //        propName.GetComponent<Text>().text ="道具名字: " + backpackGrads[int.Parse(button.name) - 1].propName;
+        //        propNumber.GetComponent<Text>().text = "道具数量: " + backpackGrads[int.Parse(button.name) - 1].propNumber;
+        //        propIntroduce.GetComponent<Text>().text ="道具介绍: " + backpackGrads[int.Parse(button.name) - 1].propIntroduce;
+        //    }
+        //    else
+        //    {
+        //        propName.GetComponent<Text>().text = "道具名字: " + "无";
+        //        propNumber.GetComponent<Text>().text = "道具数量: " + "无";
+        //        propIntroduce.GetComponent<Text>().text = "道具介绍: " + "无";
+        //    }
+        //}
         //--------------------------------------------
 
         
-        ///// <summary>
-        ///// 提示语
-        ///// </summary>
-        //public void ShowReminder(string word)
-        //{
-        //    StartCoroutine(_ShowReminder(word));
-            
-        //}
-        //IEnumerator _ShowReminder(string word)
-        //{
-        //    //yield return new WaitForSeconds(2.0f);
-        //    if(reminderText.activeSelf == false)
-        //    {
-        //        reminderText.SetActive(true);
-        //        reminderText.GetComponent<Text>().text = word;
-        //        yield return new WaitForSeconds(1.5f);
-        //    }
-            
-
-
-        //}
+      
     }
 }
 namespace GameSystem
@@ -250,10 +132,74 @@ namespace GameSystem
     {
         private static GameSystemInstance.MenuSystemInstance Instance { get { return GameSystemInstance.MenuSystemInstance.Instance; } }
         private static GameSystemInstance.MenuSystemInstance.Setting Setting { get { return Instance.setting; } }
-     
-        
+
+       
+
+        public static void OpenNormalUI(UIType uiType)
+        {
+            if(Setting.CurrentUI != null)
+            {
+                Setting.CurrentUI.CloseUI();
+            }
+            if (Setting.NormalUIDic.ContainsKey(uiType))
+            {
+                Setting.CurrentUI = Setting.NormalUIDic[uiType];
+            }
+            else
+            {
+                //Debug.Log(UIPath[uiType]);
+                BaseUI theUI = GameObject.Instantiate(Resources.Load<BaseUI>(UIPath[uiType])) as BaseUI;
+                AddChild(theUI.transform, Setting.NormalUI);
+                Setting.NormalUIDic.Add(uiType, theUI);
+                Setting.CurrentUI = theUI;
+            }
+            Setting.CurrentUI.OpenUI();
+        }
 
 
-
+        /// <summary>
+        /// UI预制体的存放路径
+        /// </summary>
+        private static Dictionary<UIType, string> UIPath = new Dictionary<UIType, string>
+        {
+            {UIType.BulletUI,"UIPrefabs/BulletUI"},{UIType.BackpackUI,"UIPrefabs/BackpackUI"},
+        };
+        /// <summary>
+        /// 添加子物体
+        /// </summary>
+        /// <param name="child">子物体</param>
+        /// <param name="parent">父物体</param>
+        private static void AddChild(Transform child, Transform parent)
+        {
+            child.SetParent(parent.transform);
+            child.localPosition = Vector3.zero;
+            child.localScale = Vector3.one;
+            child.localEulerAngles = Vector3.zero;
+        }
+        /// <summary>
+        /// 按名字获取子物体
+        /// </summary>
+        /// <param name="parent">父物体</param>
+        /// <param name="childName">子物体的名字</param>
+        /// <returns></returns>
+        public static GameObject FindChildByName(GameObject parent, string childName)
+        {
+            if (parent.name == childName)
+                return parent;
+            if (parent.transform.childCount < 1)
+                return null;
+            GameObject obj = null;
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                //递归
+                GameObject go = parent.transform.GetChild(i).gameObject;
+                obj = FindChildByName(go, childName);
+                if (obj != null)
+                {
+                    break;
+                }
+            }
+            return obj;
+        }
     }
 }

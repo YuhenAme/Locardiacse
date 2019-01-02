@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletUI : MonoBehaviour {
+public class BulletUI : BaseUI {
 
     GameObject bulletButton;
     GameObject bulletUI;
@@ -15,8 +15,8 @@ public class BulletUI : MonoBehaviour {
 
     private void Start()
     {
-        bulletButton = GameObject.Find("MainUI").transform.GetChild(0).gameObject;
-        bulletUI = GameObject.Find("MainUI").transform.GetChild(1).gameObject;
+        //bulletButton = GameObject.Find("MainUI").transform.GetChild(0).gameObject;
+        //bulletUI = GameObject.Find("MainUI").transform.GetChild(1).gameObject;
         //selectPistolBullets = GameSystem.BulletSystem.Instance.setting.pistolBullets01;
     }
 

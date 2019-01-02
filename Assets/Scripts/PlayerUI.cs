@@ -11,8 +11,8 @@ public class PlayerUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mainUI = GameObject.Find("MainUI");
-        playerHP = mainUI.transform.GetChild(4).transform.GetChild(0).gameObject;
-        playerBullet = mainUI.transform.GetChild(4).transform.GetChild(1).gameObject;
+        //playerHP = mainUI.transform.GetChild(4).transform.GetChild(0).gameObject;
+        //playerBullet = mainUI.transform.GetChild(4).transform.GetChild(1).gameObject;
         player = GameObject.FindWithTag("Player");
 	}
 	
